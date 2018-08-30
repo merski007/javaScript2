@@ -1,5 +1,5 @@
 #8/29/18#
-- Grab a word or phrase per interview describing design
+- Grab a word or phrase per interview describing design (class video)
     - interview 1: Alice, Standardization of design, sustainability
     - interview 2: Andrew, Cultural context, Japanese toothpick
     - interview 3: Dan, Design for people at the extremes
@@ -22,6 +22,29 @@
     - interview 20: Thomas, toothbrush example???
     - interview 21: Jane, empathic connection in their context (identify the response with the user)
     - interview 22: Anthony/Fiona, 
+
+Class review of video:
+- Human
+- Better with use
+- Form follows function (Affordances)
+- Multi-purpose
+- Long lasting
+- Extremes!!!!
+- Unobtrusive
+- Remove unnecussary
+- Target audience (Cultural context)
+- Iterative process
+- Undesigned
+- Behavior Design
+- Purposeful
+- Emotion
+- Sustainability
+- 
+
+
+
+
+
 
 
 
