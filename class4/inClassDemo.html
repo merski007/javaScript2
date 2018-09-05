@@ -13,6 +13,7 @@
 
 <body>
     <main role="main" class="container">
+        <!-- easy display
         <div class="row">
             <div class="col-md-9 col-lg-8 border">
                 <h1>Bootstrap starter template</h1>
@@ -22,6 +23,52 @@
                 <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML file.</p>
             </div>
         </div>
+         -->
+
+        <!-- modal pop-up for form submittal, includes some jquery at bottom of page
+        <div id="thankyou" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Thank You</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Thank you for your comments.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <form>
+                <div class="form-group row">
+                    <label for="inputName" class="col-sm-1-12 col-form-label"></label>
+                    <div class="col-sm-1-12">
+                        <input type="text|password|email|number|submit|date|datetime|datetime-local|month|color|range|search|tel|time|url|week" class="form-control" name="inputName" id="inputName" placeholder="">
+                    </div>
+                </div>
+                <fieldset class="form-group row">
+                    <legend class="col-form-legend col-sm-1-12">Group name</legend>
+                    <div class="col-sm-1-12">
+
+                    </div>
+                </fieldset>
+                <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">Action</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        -->
+
+
+
     </main>
 
 
@@ -30,6 +77,18 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('form').on('submit', function (e) {
+                // prevent page from reloading
+                e.preventDefault();
+                $('#thankyou').modal('show');
+
+            });
+        });
+    </script>
+
 </body>
 
 </html>
