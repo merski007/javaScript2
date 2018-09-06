@@ -13,40 +13,178 @@
 
 <body>
   <div class="container">
-    <div class="row">
-      <div class="col-md-8">
-        <!-- Contact info, standard form fields -->
-        <div class="form-group">
-          <label for="First name">First name</label>
-          <input type="text" class="form-control" placeholder="John" aria-describedby="first name">
-          <label for="Last name">Last name</label>
-          <input type="text" class="form-control" placeholder="Smith" aria-describedby="last name">
-        </div>
-        <form class="form-inline">
-          <div class="form-group">
-            <label for="City">City</label>
-            <input type="text" class="form-control" placeholder="Milwaukee" aria-describedby="city">
-
-            <label for="State">State</label>
-            <!--
-            <input type="text" class="form-control" placeholder="WI" aria-describedby="city">
-             -->
-            <select class="form-control">
-              <option>AZ</option>
-              <option>IL</option>
-              <option>NY</option>
-              <option>WI</option>
-            </select>
-            <label for=" Zip ">Zip code</label>
-            <input type="number " class="form-control " placeholder="53223 " aria-describedby="zip code ">
+    <h1>Personal Information</h1>
+    <p>Please fill out the information below</p>
+    <form class="needs-validation" novalidate>
+      <div class="form-row">
+        <div class="form-group col-md-5">
+          <label for="inputFirstName">First Name</label>
+          <input type="text" class="form-control" id="inputFirstName" placeholder="John" required>
+          <div class="valid-feedback">
+            Looks good!
           </div>
-        </form>
+          <div class="invalid-feedback">
+            Please enter a first name
+          </div>
+        </div>
+        <div class="form-group col-md-1">
+          <label for="inputInitial">Initial</label>
+          <input type="text" class="form-control" id="inputMiddleInitial" placeholder="G">
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputLastName">Last Name</label>
+          <input type="text" class="form-control" id="inputLastName" placeholder="Smith" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div class="invalid-feedback">
+            Please enter a last name
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputLastName">Last Name</label>
+          <input type="date" class="form-control" id="inputLastName" placeholder="Smith" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div class="invalid-feedback">
+            Please enter a last name
+          </div>
+        </div>
       </div>
-    </div>
+      <div class="form-group">
+        <label for="inputAddress">Address</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="invalid-feedback">
+          Please enter an address
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAddress2">Address 2</label>
+        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCity">City</label>
+          <input type="text" class="form-control" id="inputCity" placeholder="Milwaukee" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div class="invalid-feedback">
+            Please enter a city
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">State</label>
+          <select id="inputState" class="form-control" required>
+            <option value="">Choose...</option>
+            <option value="1">AZ</option>
+            <option value="2">FL</option>
+            <option value="3">SC</option>
+            <option value="4">WI</option>
+          </select>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div class="invalid-feedback">
+            Please select a state
+          </div>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip">Zip</label>
+          <input type="number" class="form-control" id="inputZip" placeholder="53223" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div class="invalid-feedback">
+            Please enter a zip code
+          </div>
+        </div>
+      </div>
+      <hr>
+      <h1>Age</h1>
+      <p>Which age group best describes you?</p>
+      <fieldset class="form-group">
+        <div class="row">
+          <legend class="col-form-label col-sm-2 pt-0">Age Groups</legend>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+              <label class="form-check-label" for="gridRadios1">
+                18-24
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                25-29
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+              <label class="form-check-label" for="gridRadios3">
+                30-34
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="option4">
+              <label class="form-check-label" for="gridRadios4">
+                35-39
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios5" value="option5">
+              <label class="form-check-label" for="gridRadios5">
+                40-50
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios6" value="option6">
+              <label class="form-check-label" for="gridRadios6">
+                50+
+              </label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <hr>
+      <button type="submit" class="btn btn-primary">Submit form</button>
+    </form>
   </div>
-  <!-- Age info, radio buttons -->
-  <!-- Salary info, drop-down menu-->
-  <!-- Enter email and password to save form and revisit-->
+  <br>
+  <br>
+
+
+
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+      'use strict';
+      window.addEventListener('load', function () {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function (form) {
+          form.addEventListener('submit', function (event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+  </script>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
