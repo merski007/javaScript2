@@ -113,38 +113,40 @@
                     <td width="309" valign="top">
 
                       <!-- menu items start -->
-                      <table class="text" style="height: 205px;" width="257" cellspacing="0" cellpadding="0" border="0">
-                        <tbody>
-                          <tr>
-                            <td><strong>Butter Burgers</strong></td>
-                            <td height="19"></td>
-                          </tr>
-                          <tr>
-                            <td width="219" height="30">Butter Burger</td>
-                            <td width="50" height="30" align="right">1.99</td>
-                          </tr>
-                          <tr>
-                            <td width="219" height="30">Jumbo Butter Burger</td>
-                            <td width="50" height="30" align="right">3.49</td>
-                          </tr>
-                          <tr>
-                            <td width="219" height="30">Double Butter Burger</td>
-                            <td width="50" height="30" align="right">2.69</td>
-                          </tr>
-                          <tr>
-                            <td width="219" height="30">Double Jumbo Butter Burger</td>
-                            <td width="50" height="30" align="right">5.49</td>
-                          </tr>
-                          <tr>
-                            <td width="219" height="30">Black Angus Burger</td>
-                            <td width="50" height="30" align="right">5.50</td>
-                          </tr>
-                          <tr>
-                            <td width="219" height="30">Double Black Angus Burger</td>
-                            <td width="50" height="30" align="right">7.99</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                      <div id="accordion">
+                        <table class="text" style="height: 205px;" width="257" cellspacing="0" cellpadding="0" border="0">
+                          <h3>Butter Burgers</h3>
+                          <div>
+                            <table class="text" style="height: 205px;" width="257" cellspacing="0" cellpadding="0" border="0">
+                              <tbody>
+                                <tr>
+                                  <td width="219" height="30">Butter Burger</td>
+                                  <td width="50" height="30" align="right">1.99</td>
+                                </tr>
+                                <tr>
+                                  <td width="219" height="30">Jumbo Butter Burger</td>
+                                  <td width="50" height="30" align="right">3.49</td>
+                                </tr>
+                                <tr>
+                                  <td width="219" height="30">Double Butter Burger</td>
+                                  <td width="50" height="30" align="right">2.69</td>
+                                </tr>
+                                <tr>
+                                  <td width="219" height="30">Double Jumbo Butter Burger</td>
+                                  <td width="50" height="30" align="right">5.49</td>
+                                </tr>
+                                <tr>
+                                  <td width="219" height="30">Black Angus Burger</td>
+                                  <td width="50" height="30" align="right">5.50</td>
+                                </tr>
+                                <tr>
+                                  <td width="219" height="30">Double Black Angus Burger</td>
+                                  <td width="50" height="30" align="right">7.99</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                      </div>
 
                       <table class="text" style="height: 90px;" width="257" cellspacing="0" cellpadding="0" border="0">
                         <tbody>
@@ -826,6 +828,14 @@ Address Line #1</span>, <span class="locality">City</span>, <span class="region"
           </tr>
         </tbody>
       </table>
+
+      <!-- jquery improvement area for class HW -->
+      <link href="jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet">
+      <script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+      <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+      <script>
+        $("#accordion").accordion({ autoHeight: false, collapsible: true });
+      </script>
 
     </div>
   </div>
