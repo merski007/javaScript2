@@ -4,7 +4,7 @@ var app = angular.module('todoApp', ['ngStorage']);
 // add a controller - used to handle requests
 // BUSINESS LOGIC ONLY
 // don't want to manipulate the dom or HTML/CSS here
-app.controller('todoCtrl', function ($scope, $localStorage) {
+app.controller('todoCtrl', function ($scope, $localStorage, $http) {
     // $scope provides models to your view (and vice-versa) (kind of like a java bean)
     //$scope.yourName = 'Joe';
 
@@ -51,5 +51,14 @@ app.controller('todoCtrl', function ($scope, $localStorage) {
         // update model to celar text box
         $scope.newTodo = '';
     }
+
+    // example 20, fetching json, currently not working
+    /*
+    $http.get('countries.json').success(function (data) {
+        $scope.countries = data;
+    });
+    */
+
+
 
 });
