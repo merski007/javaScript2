@@ -55,17 +55,10 @@ app.controller('todoCtrl', function ($scope, $localStorage, $http) {
     // example 20, fetching json, currently not working
 
     $http.get('countries.json').then(function (data) {
-        $scope.countries = data;
+        //console.log(data);
+        $scope.countries = data.data;
     });
 
-
-    /* this works
-    $scope.countries = [
-        { "name": "China", "population": 1359821000 },
-        { "name": "India", "population": 1205625000 },
-        { "name": "United States of America", "population": 312247000 }
-    ];
-    */
 
 
 
