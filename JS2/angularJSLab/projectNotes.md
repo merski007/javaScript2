@@ -16,4 +16,4 @@
         - grab username from DOM
 
 - TakeDown_Put Up List window
-    - need more info on this
+    - Weekly PDF file that users will click to download
