@@ -1,0 +1,36 @@
+[
+    {
+        "week": "week1",
+        "pdfFiles": [
+            {
+                "fileName": "pdf1.pdf",
+                "description": "Hedge Sheers"
+            },
+            {
+                "fileName": "pdf2.pdf",
+                "description": "Axes"
+            },
+            {
+                "fileName": "pdf3.pdf",
+                "description": "Flame Throwers"
+            }
+        ]
+    },
+    {
+        "week": "week2",
+        "pdfFiles": [
+            {
+                "fileName": "pdf1.pdf",
+                "description": "Refridgerators"
+            },
+            {
+                "fileName": "pdf2.pdf",
+                "description": "Dishwashers"
+            },
+            {
+                "fileName": "pdf3.pdf",
+                "description": "Microwaves"
+            }
+        ]
+    }
+]
