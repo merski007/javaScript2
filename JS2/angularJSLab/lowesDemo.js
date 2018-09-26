@@ -1,6 +1,9 @@
 // define our app "name" and "plugins" used
 var app = angular.module('lowesApp', ['ngStorage', 'ngMaterial', 'ngMessages']);
 
+// path variable that can be switched one posting files to a different server
+var path = 'http://127.0.0.1:5500'
+
 // controller for the pdf file download view
 app.controller('pdfFileCtrl', function ($scope, $localStorage, $http) {
     // data for weeks dropdown menu
