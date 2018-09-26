@@ -9,6 +9,7 @@
     - Search bar for user to filter the view in page list
         - each file will have a checkbox for the user to click on
     - Download (submit) button for user to click on to download all checked files
+    - add a select all/clear button
 
 - USPS tracking window
     - Display a grid with the tracking info for the user
