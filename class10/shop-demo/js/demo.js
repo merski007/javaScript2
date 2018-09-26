@@ -2,18 +2,42 @@
 var app = angular.module('shopDemo', ['ui.bootstrap', 'ngRoute']);
 
 // define some global variables available to the entire app
-app.run(function ($rootScope) {
+app.run(function ($rootScope, $location) {
 	var d = new Date();
 	$rootScope.appName = 'Shop Demo';
 	$rootScope.copyright = d.getFullYear();
+	$rootScope.isActive = function (viewPath) {
+		return viewPath == $location.path();
+	}
 });
 
+// configure our routes
+// urls that map to views/controllers
+app.config(function ($routeProvider) {
+	$routeProvider
+		//home
+		.when('/', {
+			templateUrl: 'pages/home.html',
+			controller: 'homeController'
+		})
+		//product
+		.when('/product', {
+			templateUrl: 'pages/product.html',
+			controller: 'productController'
+		})
+		.when('/about', {
+			template: '<h1>this is my about page!</h1>'
+		})
+		.otherwise({
+			template: '<h1>404. Page not found!</h1>'
+		});
+});
 
-// Products controller
-app.controller('productsController', function ($scope) {
-	// sample products
+// Product controller
+app.controller('productController', function ($scope) {
+	// sample product
 	// ideally, add image, rating, description, etc to this array
-	$scope.products = [
+	$scope.product = [
 		{ id: 1, name: "Item One", price: 21.99 },
 		{ id: 2, name: "Item Two", price: 22.99 },
 		{ id: 3, name: "Item Three", price: 23.99 },
@@ -42,3 +66,7 @@ app.controller('productsController', function ($scope) {
 	};
 });
 
+// Home controler
+app.controller('homeController', function ($scope) {
+
+});

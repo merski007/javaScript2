@@ -35,17 +35,17 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"> <a class="nav-link" href="#">Home </a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#about">About</a> </li>
-          <li class="nav-item active"> <a class="nav-link" href="#products">Products <span class="sr-only">(current)</span> </a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#contact">Contact</a> </li>
+          <li class="nav-item" ng-class="{active:isActive('/')}"> <a class="nav-link" href="#!">Home </a> </li>
+          <li class="nav-item" ng-class="{active:isActive('/about')}"> <a class="nav-link" href="#!about">About</a> </li>
+          <li class="nav-item" ng-class="{active:isActive('/product')}"> <a class="nav-link" href="#!product">Products <span class="sr-only">(current)</span> </a> </li>
+          <li class="nav-item" ng-class="{active:isActive('/contact')}"> <a class="nav-link" href="#!contact">Contact</a> </li>
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- Page Content -->
-  <div class="container" ng-view>
+  <div class="container" ng-view autoscroll="true">
 
   </div>
   <!-- /.container -->
