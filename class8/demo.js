@@ -34,7 +34,7 @@ app.controller('todoCtrl', function ($scope, $localStorage, $http) {
     // custom filter to get incomplete todos
     $scope.getIncompleteTodos = function () {
         return $scope.$storage.todos.filter(function (todo) {
-            // return true if we want to keep this item
+            // return false if we want to keep this item
             return !todo.done;
         });
     };
