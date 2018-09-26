@@ -4,18 +4,15 @@
         "pdfFiles": [
             {
                 "fileName": "pdf1.pdf",
-                "description": "Hedge Sheers",
-                "done": false
+                "description": "Hedge Sheers"
             },
             {
                 "fileName": "pdf2.pdf",
-                "description": "Axes",
-                "done": false
+                "description": "Axes"
             },
             {
                 "fileName": "pdf3.pdf",
-                "description": "Flame Throwers",
-                "done": false
+                "description": "Flame Throwers"
             }
         ]
     },
@@ -24,18 +21,15 @@
         "pdfFiles": [
             {
                 "fileName": "pdf4.pdf",
-                "description": "Refridgerators",
-                "done": false
+                "description": "Refridgerators"
             },
             {
                 "fileName": "pdf5.pdf",
-                "description": "Dishwashers",
-                "done": false
+                "description": "Dishwashers"
             },
             {
                 "fileName": "pdf6.pdf",
-                "description": "Microwaves",
-                "done": false
+                "description": "Microwaves"
             }
         ]
     }
