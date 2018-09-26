@@ -34,9 +34,11 @@
 		<!-- test code to see what the path will be to return filenames -->
 		<!--<h1>You selected: {{selectedWeek.pdfFiles[0].fileName}}</h1>-->
 		<ul>
+			<li><input type="checkbox" ng-model="checkAll">Select All</li>
 			<li ng-repeat="file in selectedWeek.pdfFiles">
 				<label>
-					<input type="checkbox" ng-model="pdfCheckbox">
+
+					<input type="checkbox" ng-checked="checkAll" ng-model="pdfCheckbox">
 					{{file.fileName}}
 				</label>
 			</li>
