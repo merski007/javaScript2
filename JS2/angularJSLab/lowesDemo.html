@@ -23,7 +23,7 @@
 
 <body ng-app="lowesApp">
 	<div class="wrapper" ng-controller="pdfFileCtrl">
-		<select ng-model="selectedWeek" ng-options="week for week in weeks"></select>
+		<select ng-model="selectedWeek" ng-options="week.week for week in weeks"></select>
 	</div>
 </body>
 
