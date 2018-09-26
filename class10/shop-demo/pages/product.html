@@ -1,45 +1,47 @@
-	  <div class="row">
-
-        <div class="col-lg-3">
-		  <h1 class="my-4">Products</h1>
-          <a href="#!products">&larr; All Products</a>
+<div class="row">
+    <div class="col-lg-3">
+        <h1 class="my-4">Products</h1>
+        <div class="list-group">
+            <a href="" class="list-group-item" ng-click="changeCategory(1)">Category 1</a>
+            <a href="" class="list-group-item" ng-click="changeCategory(2)">Category 2</a>
+            <a href="" class="list-group-item" ng-click="changeCategory(3)">Category 3</a>
         </div>
-        <!-- /.col-lg-3 -->
+        <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
+    </div>
+    <!-- /.col-lg-3 -->
 
-        <div class="col-lg-9">
+    <div class="col-lg-9">
 
-          <div class="card mt-4">
-            <img class="card-img-top img-fluid" src="http://unsplash.it/700/400?random&{{product.id}}" alt="">
-            <div class="card-body">
-              <h3 class="card-title">{{product.name}}</h3>
-              <h4>{{product.price}}</h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente dicta fugit fugiat hic aliquam itaque facere, soluta. Totam id dolores, sint aperiam sequi pariatur praesentium animi perspiciatis molestias iure, ducimus!</p>
-              <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-              4.0 stars
+        <!-- UIB Carousel -->
+        <div style="height: 350px" class="my-4">
+            <div uib-carousel active="0" interval="3000" template-url="vendor/ui-bootstrap/template/carousel/carousel.html">
+                <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id"> <img ng-src="{{slide.image}}" style="margin:auto;">
+                    <div class="carousel-caption">
+                        <h4>Slide Title</h4>
+                        <p>{{slide.text}}</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <!-- /.card -->
-
-          <div class="card card-outline-secondary my-4">
-            <div class="card-header">
-              Product Reviews
-            </div>
-            <div class="card-body">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-              <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-              <hr>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-              <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-              <hr>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-              <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-              <hr>
-              <a href="#" class="btn btn-success">Leave a Review</a>
-            </div>
-          </div>
-          <!-- /.card -->
-
         </div>
-        <!-- /.col-lg-9 -->
 
-      </div>
+        <!-- Product Listing -->
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4" ng-repeat="item in products">
+                <div class="card h-100">
+                    <a href="#!product/{{item.id}}"><img class="card-img-top" src="http://unsplash.it/700/400?random&{{item.id}}" alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title"> <a href="#!product/{{item.id}}">{{item.name}}</a> </h4>
+                        <h5>{{item.price}}</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                    </div>
+                    <div class="card-footer"> <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small> </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.col-lg-9 -->
+
+</div>
+<!-- /.row -->

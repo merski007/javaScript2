@@ -1,107 +1,109 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="shopDemo">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>{{appName}}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{{appName}}</title>
 
-	<!-- Bootstrap core CSS -->
-	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-	<!-- Custom styles for this template 
-	<!-- https://startbootstrap.com/template-overviews/shop-homepage -->
-	<link href="css/shop.css" rel="stylesheet">
-	
-	<!-- Angular and Bootstrap core JavaScript --> 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script> 
-	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-route.min.js"></script> -->
+  <!-- Custom styles for this template -->
+  <!-- https://startbootstrap.com/template-overviews/shop-homepage -->
+  <link href="css/shop.css" rel="stylesheet">
 
-	<!-- AngularJS UI Boostrap 4 and required libraries  --> 
-	<!-- https://morgul.github.io/ui-bootstrap4/ --> 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-animate.min.js"></script> 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-touch.min.js"></script> 
-	<script src="vendor/ui-bootstrap/js/ui-bootstrap-tpls-3.0.4.min.js"></script> 
+  <!-- Angular and Bootstrap core JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-route.min.js"></script> -->
 
-	<!-- Our JS code --> 
-	<script src="js/demo.js"></script>
+  <!-- AngularJS UI Boostrap 4 and required libraries  -->
+  <!-- https://morgul.github.io/ui-bootstrap4/ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-animate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-touch.min.js"></script>
+  <script src="vendor/ui-bootstrap/js/ui-bootstrap-tpls-3.0.4.min.js"></script>
+
+  <!-- Our JS code -->
+  <script src="js/demo.js"></script>
 </head>
 
 <body>
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <div class="container"> <a class="navbar-brand" href="#">{{appName}}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item"> <a class="nav-link" href="#">Home </a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#about">About</a> </li>
-        <li class="nav-item active"> <a class="nav-link" href="#products">Products <span class="sr-only">(current)</span> </a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#contact">Contact</a> </li>
-      </ul>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container"> <a class="navbar-brand" href="#">{{appName}}</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"> <a class="nav-link" href="#">Home </a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#about">About</a> </li>
+          <li class="nav-item active"> <a class="nav-link" href="#products">Products <span class="sr-only">(current)</span> </a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#contact">Contact</a> </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<!-- Page Content -->
-<div class="container" ng-controller="productsController">
-  <div class="row">
-    <div class="col-lg-3">
-      <h1 class="my-4">Products</h1>
-      <div class="list-group"> 
-		  <a href="" class="list-group-item" ng-click="changeCategory(1)">Category 1</a> 
-		  <a href="" class="list-group-item" ng-click="changeCategory(2)">Category 2</a> 
-		  <a href="" class="list-group-item" ng-click="changeCategory(3)">Category 3</a> 
-	  </div>
-      <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
-    </div>
-    <!-- /.col-lg-3 -->
-    
-    <div class="col-lg-9"> 
-      
-      <!-- UIB Carousel -->
-      <div style="height: 350px" class="my-4">
-        <div uib-carousel active="0" interval="3000" template-url="vendor/ui-bootstrap/template/carousel/carousel.html">
-          <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id"> <img ng-src="{{slide.image}}" style="margin:auto;">
-            <div class="carousel-caption">
-              <h4>Slide Title</h4>
-              <p>{{slide.text}}</p>
+  <!-- Page Content -->
+  <div class="container" ng-controller="productsController">
+    <div class="row">
+      <div class="col-lg-3">
+        <h1 class="my-4">Products</h1>
+        <div class="list-group">
+          <a href="" class="list-group-item" ng-click="changeCategory(1)">Category 1</a>
+          <a href="" class="list-group-item" ng-click="changeCategory(2)">Category 2</a>
+          <a href="" class="list-group-item" ng-click="changeCategory(3)">Category 3</a>
+        </div>
+        <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
+      </div>
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-9">
+
+        <!-- UIB Carousel -->
+        <div style="height: 350px" class="my-4">
+          <div uib-carousel active="0" interval="3000" template-url="vendor/ui-bootstrap/template/carousel/carousel.html">
+            <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id"> <img ng-src="{{slide.image}}" style="margin:auto;">
+              <div class="carousel-caption">
+                <h4>Slide Title</h4>
+                <p>{{slide.text}}</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-		
-	  <!-- Product Listing -->
-      <div class="row">
-        <div class="col-lg-4 col-md-6 mb-4" ng-repeat="item in products">
-          <div class="card h-100"> 
-			<a href="#!product/{{item.id}}"><img class="card-img-top" src="http://unsplash.it/700/400?random&{{item.id}}" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title"> <a href="#!product/{{item.id}}">{{item.name}}</a> </h4>
-              <h5>{{item.price}}</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+
+        <!-- Product Listing -->
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4" ng-repeat="item in products">
+            <div class="card h-100">
+              <a href="#!product/{{item.id}}"><img class="card-img-top" src="http://unsplash.it/700/400?random&{{item.id}}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title"> <a href="#!product/{{item.id}}">{{item.name}}</a> </h4>
+                <h5>{{item.price}}</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+              </div>
+              <div class="card-footer"> <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small> </div>
             </div>
-            <div class="card-footer"> <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small> </div>
           </div>
         </div>
-      </div>
-      <!-- /.row --> 
-      
-    </div>
-    <!-- /.col-lg-9 --> 
-    
-  </div>
-  <!-- /.row --> 
-  
-</div>
-<!-- /.container --> 
+        <!-- /.row -->
 
-<!-- Footer -->
-<footer class="py-5 bg-dark">
-  <div class="container">
-    <p class="m-0 text-center text-white">Copyright &copy; {{appName}} {{copyright}}.</p>
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
   </div>
-</footer>
-	
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; {{appName}} {{copyright}}.</p>
+    </div>
+  </footer>
+
 </body>
+
 </html>
