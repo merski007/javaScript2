@@ -10,7 +10,7 @@ app.controller('pdfFileCtrl', function ($scope, $localStorage, $http) {
 
     // download files function
     $scope.download = function () {
-
+        // TODO, make the download happen
     }
 
 });

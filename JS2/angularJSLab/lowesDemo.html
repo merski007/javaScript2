@@ -34,7 +34,7 @@
 		<ul>
 			<li ng-repeat="file in selectedWeek.pdfFiles">
 				<label>
-					<input type="checkbox">
+					<input type="checkbox" ng-model="pdfCheckbox">
 					{{file.fileName}}
 				</label>
 			</li>
