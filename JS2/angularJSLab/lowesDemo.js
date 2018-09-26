@@ -2,7 +2,7 @@
 var app = angular.module('lowesApp', ['ngStorage', 'ngMaterial', 'ngMessages']);
 
 // path variable that can be switched one posting files to a different server
-var path = 'http://127.0.0.1:5500'
+var path = 'http://mmersenski.bitlampsites.com/js2/'
 
 // controller for the pdf file download view
 app.controller('pdfFileCtrl', function ($scope, $localStorage, $http) {
