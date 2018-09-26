@@ -20,15 +20,15 @@
         "week": "week2",
         "pdfFiles": [
             {
-                "fileName": "pdf1.pdf",
+                "fileName": "pdf4.pdf",
                 "description": "Refridgerators"
             },
             {
-                "fileName": "pdf2.pdf",
+                "fileName": "pdf5.pdf",
                 "description": "Dishwashers"
             },
             {
-                "fileName": "pdf3.pdf",
+                "fileName": "pdf6.pdf",
                 "description": "Microwaves"
             }
         ]
