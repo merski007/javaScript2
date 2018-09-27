@@ -25,6 +25,10 @@ app.config(function ($routeProvider) {
 			templateUrl: 'pages/product.html',
 			controller: 'productController'
 		})
+		.when('/product/:productId', {
+			templateUrl: 'pages/_product.html',
+			controller: 'productController'
+		})
 		.when('/about', {
 			template: '<h1>this is my about page!</h1>'
 		})
@@ -34,17 +38,26 @@ app.config(function ($routeProvider) {
 });
 
 // Product controller
-app.controller('productController', function ($scope) {
+app.controller('productController', function ($scope, $routeParams) {
 	// sample product
 	// ideally, add image, rating, description, etc to this array
-	$scope.product = [
-		{ id: 1, name: "Item One", price: 21.99 },
-		{ id: 2, name: "Item Two", price: 22.99 },
-		{ id: 3, name: "Item Three", price: 23.99 },
-		{ id: 4, name: "Item Four", price: 24.99 },
-		{ id: 5, name: "Item Five", price: 25.99 },
-		{ id: 6, name: "Item Six", price: 26.99 }
+	$scope.products = [
+		{ id: 1, name: "Item One", price: 21.99, cat: 1 },
+		{ id: 2, name: "Item Two", price: 22.99, cat: 1 },
+		{ id: 3, name: "Item Three", price: 23.99, cat: 2 },
+		{ id: 4, name: "Item Four", price: 24.99, cat: 2 },
+		{ id: 5, name: "Item Five", price: 25.99, cat: 3 },
+		{ id: 6, name: "Item Six", price: 26.99, cat: 3 }
 	];
+
+	// default category
+	$scope.productCategory = 1;
+
+	// set the current product the user is looking at
+	// $routeParams.productId will have the product id from the url
+	$scope.product = $scope.products.find(function (item) {
+		return item.id == $routeParams.productId;
+	});
 
 	// https://morgul.github.io/ui-bootstrap4/#!#carousel
 	$scope.slides = [
@@ -58,7 +71,8 @@ app.controller('productController', function ($scope) {
 	$scope.alerts = [];
 
 	$scope.changeCategory = function (category) {
-		$scope.alerts = [{ type: 'danger', msg: 'Oops! This functionality isn\'t complete yet!' }];
+		//$scope.alerts = [{ type: 'danger', msg: 'Oops! This functionality isn\'t complete yet!' }];
+		$scope.productCategory = category;
 	};
 
 	$scope.closeAlert = function (index) {
