@@ -21,20 +21,6 @@
 	<script src="js/checklistModel.js"></script>
 	<script src="js/jszip.js"></script>
 	<script src="js/fileSaver.js"></script>
-	<script>
-		function pack() {
-			var zip = new JSZip();
-			zip.file("readme.txt", "This zip file was created using JSZip.");
-			var docs = zip.folder("documents");
-			docs.file("hello.txt", "hello world!");
-			docs.file("goodmorning.txt", "good morning everyone!");
-			zip.generateAsync({ type: "blob" })
-				.then(function (content) {
-					// see FileSaver.js
-					saveAs(content, "example.zip");
-				});
-		}
-	</script>
 
 	<!--angularJS material css link-->
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
@@ -71,7 +57,7 @@
 		<br>
 		<button ng-click="download()">Download File(s)</button>
 		<br>
-		<input type="button" value="press here" onclick="pack()" />
+		<input type="button" value="press here" onclick="zipFiles()" />
 	</div>
 </body>
 
