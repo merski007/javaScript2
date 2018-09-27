@@ -18,6 +18,7 @@
 
 	<!--my JS file-->
 	<script src="lowesDemo.js"></script>
+	<script src="checklistModel.js"></script>
 
 	<!--angularJS material css link-->
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
@@ -36,13 +37,15 @@
 		<ul>
 			<li ng-repeat="file in selectedWeek.pdfFiles">
 				<label>
-
-					<input type="checkbox" ng-checked="checkAll" ng-model="pdfCheckbox">
+					<input type="checkbox" checklist-value="file" checklist-model="selected.files">
 					{{file.fileName}}
 				</label>
 			</li>
 		</ul>
-		<input type="checkbox" ng-model="checkAll">Select All
+		<p>files: {{selectedWeek.pdfFiles}}</p>
+		<p>selected files: {{selected.files}}</p>
+		<button ng-click="checkAll()">Check all</button>
+		<button ng-click="uncheckAll()">Uncheck all</button>
 		<br>
 		<button ng-click="download()">Download File(s)</button>
 	</div>
