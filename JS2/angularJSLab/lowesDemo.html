@@ -33,13 +33,14 @@
 <body ng-app="lowesApp">
 	<div class="wrapper" ng-controller="pdfFileCtrl">
 		<select ng-model="selectedWeek" ng-options="week.week for week in weeks" ng-change="uncheckAll()"></select>
+		<input type="text" ng-model="search">
 		<!-- test code to see what the path will be to return filenames -->
 		<!--<h1>You selected: {{selectedWeek.pdfFiles[0].fileName}}</h1>-->
-		<ul>
-			<li ng-repeat="file in selectedWeek.pdfFiles">
+		<ul>fileName : description
+			<li ng-repeat="file in selectedWeek.pdfFiles | filter: search">
 				<label>
 					<input type="checkbox" checklist-value="file" checklist-model="selected.files">
-					{{file.fileName}}
+					{{file.fileName}} : {{file.description}}
 				</label>
 			</li>
 		</ul>
