@@ -31,7 +31,7 @@
 
 <body ng-app="lowesApp">
 	<div class="wrapper" ng-controller="pdfFileCtrl">
-		<select ng-model="selectedWeek" ng-options="week.week for week in weeks"></select>
+		<select ng-model="selectedWeek" ng-options="week.week for week in weeks" ng-change="uncheckAll()"></select>
 		<!-- test code to see what the path will be to return filenames -->
 		<!--<h1>You selected: {{selectedWeek.pdfFiles[0].fileName}}</h1>-->
 		<ul>
@@ -46,7 +46,7 @@
 		<p>selected files: {{selected.files}}</p>
 		<ul>
 			<li ng-repeat="x in selected.files">
-				{{x.fileName}}
+				<a href="http://127.0.0.1:5500/pdfFiles/{{x.fileName}}.pdf">{{x.fileName}}</a>
 			</li>
 		</ul>
 		<button ng-click="checkAll()">Check all</button>

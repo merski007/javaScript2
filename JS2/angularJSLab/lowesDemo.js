@@ -29,6 +29,16 @@ app.controller('pdfFileCtrl', function ($scope, $localStorage, $http) {
     // download files function
     $scope.download = function () {
         // TODO, make the download happen
+
+        // check to see if there is anything in the array
+        if ($scope.selected) {
+            angular.forEach($scope.selected, function (value, key) {
+                console.log(value); // this works
+            })
+        }
+        else {
+            // throw an alert to user
+        }
     }
 
 });
