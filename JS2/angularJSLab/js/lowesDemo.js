@@ -37,9 +37,24 @@ app.controller('pdfFileCtrl', function ($scope, $localStorage, $http) {
         var zip = new JSZip();
 
         //zip.file("readme.txt", "This zip file was created using JSZip.");
-        var docs = zip.folder("documents");
+        //var docs = zip.folder("documents");
         //docs.file("hello.txt", "hello world!");
         //docs.file("goodmorning.txt", "good morning everyone!");
+
+        //insert loop here
+        if ($scope.selected) {
+            angular.forEach($scope.selected.files, function (value, key) {
+                console.log(value.fileName);
+                //console.log(value.fileName); // this works to retrieve fileName
+                //docs.file(value.fileName + ".pdf", "http://127.0.0.1:5500/pdfFiles/" + value.fileName + ".pdf");
+                zip.file(value.fileName + ".pdf", "http://127.0.0.1:5500/pdfFiles/" + value.fileName + ".pdf");
+
+                // TODO, call the files from the server before zipping them up
+            })
+        }
+        else {
+            //throw error
+        }
 
         // combine files for download
         zip.generateAsync({ type: "blob" })
@@ -55,8 +70,9 @@ app.controller('pdfFileCtrl', function ($scope, $localStorage, $http) {
             angular.forEach($scope.selected.files, function (value, key) {
                 //console.log(value.fileName); // this works to retrieve fileName
 
+
                 // zip up the checked files
-                //zip.file(filename, urlToPromise(url), { binary: true });
+                //zip.file(value.fileName, urlToPromise(url), { binary: true });
             })
             //console.log($scope.selected);
         }
