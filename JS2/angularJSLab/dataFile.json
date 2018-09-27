@@ -3,15 +3,15 @@
         "week": "week1",
         "pdfFiles": [
             {
-                "fileName": "pdf1.pdf",
+                "fileName": "pdf1",
                 "description": "Hedge Sheers"
             },
             {
-                "fileName": "pdf2.pdf",
+                "fileName": "pdf2",
                 "description": "Axes"
             },
             {
-                "fileName": "pdf3.pdf",
+                "fileName": "pdf3",
                 "description": "Flame Throwers"
             }
         ]
@@ -20,16 +20,20 @@
         "week": "week2",
         "pdfFiles": [
             {
-                "fileName": "pdf4.pdf",
+                "fileName": "pdf4",
                 "description": "Refridgerators"
             },
             {
-                "fileName": "pdf5.pdf",
+                "fileName": "pdf5",
                 "description": "Dishwashers"
             },
             {
-                "fileName": "pdf6.pdf",
+                "fileName": "pdf6",
                 "description": "Microwaves"
+            },
+            {
+                "fileName": "pdf7",
+                "description": "Ovens"
             }
         ]
     }
