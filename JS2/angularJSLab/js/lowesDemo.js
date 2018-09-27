@@ -52,8 +52,8 @@ app.controller('pdfFileCtrl', function ($scope, $localStorage, $http) {
 
     $scope.getFileName = function () {
         if ($scope.selected) {
-            angular.forEach($scope.selected, function (value, key) {
-                console.log(value); // this works
+            angular.forEach($scope.selected.files, function (value, key) {
+                //console.log(value.fileName); // this works to retrieve fileName
 
                 // zip up the checked files
                 //zip.file(filename, urlToPromise(url), { binary: true });
