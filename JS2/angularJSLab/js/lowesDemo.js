@@ -1,6 +1,11 @@
 // define our app "name" and "plugins" used
 var app = angular.module('lowesApp', ['ngStorage', 'ngMaterial', 'ngMessages', 'checklist-model']);
 
+// bootstrap app to PTI
+angular.element(document).ready(function () {
+    angular.bootstrap(document.getElementById('lowesApp'), ['lowesApp']);
+});
+
 // path variable that can be switched one posting files to a different server
 var path = 'http://mmersenski.bitlampsites.com/js2/'
 
