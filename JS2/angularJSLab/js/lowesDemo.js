@@ -54,7 +54,7 @@ app.controller('pdfFileCtrl', function ($scope, $localStorage, $http, $timeout) 
             zip.generateAsync({ type: "blob" })
                 .then(function (content) {
                     // see FileSaver.js
-                    saveAs(content, "example.zip");
+                    saveAs(content, "documents.zip");
                 });
         }, 5000);
     };
