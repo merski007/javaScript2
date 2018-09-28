@@ -38,33 +38,27 @@ app.controller('pdfFileCtrl', function ($scope, $localStorage, $http, $timeout) 
         // create a new instance of zip
         var zip = new JSZip();
 
-        // check array for data, if data exists package is up 
-        if ($scope.selected) {
-            angular.forEach($scope.selected.files, function (value, key) {
-                // load the file from server and add it to the zip file
-                JSZipUtils.getBinaryContent("http://127.0.0.1:5500/pdfFiles/" + value.fileName + ".pdf", function (err, data) {
-                    if (err) {
-                        throw err; // TODO, handle error or notify user an error occurred
-                    }
-                    // add files to zip
-                    zip.file(value.fileName + ".pdf", data, { binary: true });
-                });
-            })
+        // loop through checked items and package them up
+        angular.forEach($scope.selected.files, function (value, key) {
+            // load the file from server and add it to the zip file
+            JSZipUtils.getBinaryContent("http://127.0.0.1:5500/pdfFiles/" + value.fileName + ".pdf", function (err, data) {
+                if (err) {
+                    throw err; // TODO, handle error or notify user an error occurred
+                }
+                // add files to zip
+                zip.file(value.fileName + ".pdf", data, { binary: true });
+            });
+        })
 
-            // putting a timer around zip function so files have time to download from server
-            // combine files for download
-            $timeout(function () {
-                zip.generateAsync({ type: "blob" })
-                    .then(function (content) {
-                        // see FileSaver.js
-                        saveAs(content, "documents.zip");
-                    });
-            }, 5000);
-        }
-        else {
-            // TODO, throw message to user that no files are selected
-            alert("No files are selected!");
-        }
+        // putting a timer around zip function so files have time to download from server
+        // combine files for download
+        $timeout(function () {
+            zip.generateAsync({ type: "blob" })
+                .then(function (content) {
+                    // see FileSaver.js
+                    saveAs(content, "documents.zip");
+                });
+        }, 5000);
 
     };
 
