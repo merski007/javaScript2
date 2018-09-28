@@ -30,26 +30,6 @@
 	<!--my JS file-->
 	<script src="js/fileSaver.js"></script>
 	<script src="js/lowesDemo.js"></script>
-	<script>
-		/*
-		function pack() {
-			// create a new instance of zip
-			var zip = new JSZip();
-
-			//zip.file("readme.txt", "This zip file was created using JSZip.");
-			var docs = zip.folder("documents");
-			//docs.file("hello.txt", "hello world!");
-			//docs.file("goodmorning.txt", "good morning everyone!");
-
-			// combine files for download
-			zip.generateAsync({ type: "blob" })
-				.then(function (content) {
-					// see FileSaver.js
-					saveAs(content, "example.zip");
-				});
-		}
-		*/
-	</script>
 
 	<!--angularJS material css link-->
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
@@ -86,7 +66,6 @@
 		<br>
 		<button ng-click="download()">Download File(s)</button>
 		<br>
-		<!--<input type="button" value="press here" onclick="getFileName()" />-->
 	</div>
 </body>
 
