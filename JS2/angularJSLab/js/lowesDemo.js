@@ -63,6 +63,7 @@ app.controller('pdfFileCtrl', function ($scope, $localStorage, $http, $timeout) 
         }
         else {
             // TODO, throw message to user that no files are selected
+            alert("No files are selected!");
         }
 
     };
