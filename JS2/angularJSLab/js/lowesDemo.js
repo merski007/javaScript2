@@ -4,11 +4,6 @@ var app = angular.module('lowesApp', ['ngStorage', 'ngMaterial', 'ngMessages', '
 // path variable that can be switched one posting files to a different server
 var path = 'http://mmersenski.bitlampsites.com/js2/'
 
-// create an instance of jsZip
-var zip = new JSZip();
-
-//zip.file("nested/hello.txt", "Hello World\n")
-
 // controller for the pdf file download view
 app.controller('pdfFileCtrl', function ($scope, $localStorage, $http, $timeout) {
     // data for weeks dropdown menu
@@ -36,35 +31,21 @@ app.controller('pdfFileCtrl', function ($scope, $localStorage, $http, $timeout) 
         // create a new instance of zip
         var zip = new JSZip();
 
-        //zip.file("readme.txt", "This zip file was created using JSZip.");
-        //var docs = zip.folder("documents");
-        //docs.file("hello.txt", "hello world!");
-        //docs.file("goodmorning.txt", "good morning everyone!");
-
-        //insert loop here
+        // check array for data, if data exists package is up 
         if ($scope.selected) {
             angular.forEach($scope.selected.files, function (value, key) {
-                //console.log(value.fileName); // this works to retrieve fileName
-
-                // grab file from server before zipping
-                //var tempFile = $http.get("http://127.0.0.1:5500/pdfFiles/" + value.fileName + ".pdf");
-                // loading a file and add it in a zip file
+                // load the file from server and add it to the zip file
                 JSZipUtils.getBinaryContent("http://127.0.0.1:5500/pdfFiles/" + value.fileName + ".pdf", function (err, data) {
                     if (err) {
-                        throw err; // or handle the error
+                        throw err; // TODO, handle error or notify user an error occurred
                     }
-                    //var zip = new JSZip();
+                    // add files to zip
                     zip.file(value.fileName + ".pdf", data, { binary: true });
                 });
-
-                //docs.file(value.fileName + ".pdf", "http://127.0.0.1:5500/pdfFiles/" + value.fileName + ".pdf");
-                //zip.file(value.fileName + ".pdf", tempFile);
-
-                // TODO, call the files from the server before zipping them up
             })
         }
         else {
-            //throw error
+            // TODO, throw message to user that no files are selected
         }
 
         // putting a timer around zip function so files have time to download from server
@@ -77,22 +58,6 @@ app.controller('pdfFileCtrl', function ($scope, $localStorage, $http, $timeout) 
                 });
         }, 5000);
     };
-
-
-    $scope.getFileName = function () {
-        if ($scope.selected) {
-            angular.forEach($scope.selected.files, function (value, key) {
-                //console.log(value.fileName); // this works to retrieve fileName
-
-
-                // zip up the checked files
-                //zip.file(value.fileName, urlToPromise(url), { binary: true });
-            })
-            //console.log($scope.selected);
-        }
-    };
-
-
 
 });
 
