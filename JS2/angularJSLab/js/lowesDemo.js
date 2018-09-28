@@ -50,20 +50,21 @@ app.controller('pdfFileCtrl', function ($scope, $localStorage, $http, $timeout) 
                     zip.file(value.fileName + ".pdf", data, { binary: true });
                 });
             })
+
+            // putting a timer around zip function so files have time to download from server
+            // combine files for download
+            $timeout(function () {
+                zip.generateAsync({ type: "blob" })
+                    .then(function (content) {
+                        // see FileSaver.js
+                        saveAs(content, "documents.zip");
+                    });
+            }, 5000);
         }
         else {
             // TODO, throw message to user that no files are selected
         }
 
-        // putting a timer around zip function so files have time to download from server
-        // combine files for download
-        $timeout(function () {
-            zip.generateAsync({ type: "blob" })
-                .then(function (content) {
-                    // see FileSaver.js
-                    saveAs(content, "documents.zip");
-                });
-        }, 5000);
     };
 
 });
