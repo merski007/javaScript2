@@ -29,9 +29,12 @@
         <!-- file list -->
         <md-list ng-if="selectedWeek">
             <md-subheader class="md-no-sticky">Weekly File List</md-subheader>
-            <md-list-item ng-repeat="file in selectedWeek.pdfFiles | filter: search" ng-class-odd="'odd'">
+            <md-list-item ng-repeat="file in selectedWeek.pdfFiles | filter: search" ng-class-odd="'odd'" class="md-2-line">
                 <md-checkbox class="blue" checklist-value="file" checklist-model="selected.files"></md-checkbox>
-                <p>{{file.fileName}} : {{file.description}}</p>
+                <div class="md-list-item-text">
+                    <h3>{{file.fileName}}</h3>
+                    <p>{{file.description}}</p>
+                </div>
             </md-list-item>
         </md-list>
 
