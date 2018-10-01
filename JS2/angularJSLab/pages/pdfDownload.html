@@ -32,14 +32,17 @@
             <!--<md-list-item ng-repeat="file in selectedWeek.pdfFiles | filter: search">-->
             <p ng-if="selectedWeek.pdfFiles">File name : File description</p>
             <md-list-item ng-repeat="file in selectedWeek.pdfFiles">
-                <md-checkbox class="primary"></md-checkbox>
+                <md-checkbox class="primary" checklist-value="file" checklist-model="selected.files"></md-checkbox>
                 <p>{{file.fileName}} : {{file.description}}</p>
             </md-list-item>
         </md-list>
 
         <!-- checkAll and uncheckAll buttons-->
+        <button ng-if="selectedWeek.pdfFiles" ng-click="checkAll()">Check all</button>
+        <button ng-if="selectedWeek.pdfFiles" ng-click="uncheckAll()">Uncheck all</button>
 
         <!-- download button -->
+        <button ng-if="selected.files.length" ng-click="download()">Download File(s)</button>
 
     </md-card>
 </md-content>
@@ -50,12 +53,13 @@
 
 
 
-
+<!--
 
 <select ng-model="selectedWeek" ng-options="week.week for week in weeks" ng-change="uncheckAll()"></select>
 <input type="text" ng-model="search">
 <!-- test code to see what the path will be to return filenames -->
 <!--<h1>You selected: {{selectedWeek.pdfFiles[0].fileName}}</h1>-->
+<!--
 <ul>fileName : description
     <li ng-repeat="file in selectedWeek.pdfFiles | filter: search">
         <label>
@@ -64,6 +68,7 @@
         </label>
     </li>
 </ul>
+
 <br>
 <button ng-click="checkAll()">Check all</button>
 <button ng-click="uncheckAll()">Uncheck all</button>
@@ -76,3 +81,4 @@
         <a href="http://127.0.0.1:5500/pdfFiles/{{x.fileName}}.pdf">{{x.fileName}}</a>
     </li>
 </ul>
+-->
