@@ -36,5 +36,106 @@
                 "description": "Ovens"
             }
         ]
+    },
+    {
+        "week": "week3",
+        "pdfFiles": [
+            {
+                "fileName": "pdf8",
+                "description": "Refridgerators"
+            },
+            {
+                "fileName": "pdf9",
+                "description": "Dishwashers"
+            },
+            {
+                "fileName": "pdf10",
+                "description": "Microwaves"
+            },
+            {
+                "fileName": "pdf11",
+                "description": "Ovens"
+            },
+            {
+                "fileName": "pdf12",
+                "description": "Refridgerators"
+            },
+            {
+                "fileName": "pdf13",
+                "description": "Dishwashers"
+            },
+            {
+                "fileName": "pdf14",
+                "description": "Microwaves"
+            },
+            {
+                "fileName": "pdf15",
+                "description": "Ovens"
+            },
+            {
+                "fileName": "pdf16",
+                "description": "Refridgerators"
+            },
+            {
+                "fileName": "pdf17",
+                "description": "Dishwashers"
+            },
+            {
+                "fileName": "pdf18",
+                "description": "Microwaves"
+            },
+            {
+                "fileName": "pdf19",
+                "description": "Ovens"
+            },
+            {
+                "fileName": "pdf20",
+                "description": "Refridgerators"
+            },
+            {
+                "fileName": "pdf21",
+                "description": "Dishwashers"
+            },
+            {
+                "fileName": "pdf22",
+                "description": "Microwaves"
+            },
+            {
+                "fileName": "pdf23",
+                "description": "Ovens"
+            },
+            {
+                "fileName": "pdf24",
+                "description": "Refridgerators"
+            },
+            {
+                "fileName": "pdf25",
+                "description": "Dishwashers"
+            },
+            {
+                "fileName": "pdf26",
+                "description": "Microwaves"
+            },
+            {
+                "fileName": "pdf27",
+                "description": "Ovens"
+            },
+            {
+                "fileName": "pdf28",
+                "description": "Refridgerators"
+            },
+            {
+                "fileName": "pdf29",
+                "description": "Dishwashers"
+            },
+            {
+                "fileName": "pdf30",
+                "description": "Microwaves"
+            },
+            {
+                "fileName": "pdf31",
+                "description": "Ovens"
+            }
+        ]
     }
 ]
