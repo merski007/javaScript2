@@ -1,5 +1,5 @@
 // define our app "name" and "plugins" used
-var app = angular.module('lowesApp', ['ngStorage', 'ngMaterial', 'ngMessages', 'checklist-model']);
+var app = angular.module('lowesApp', ['ngStorage', 'ngMaterial', 'ngMessages', 'checklist-model', 'ngRoute']);
 
 // define some global variables available to the entire app
 app.run(function ($rootScope) {
@@ -8,27 +8,28 @@ app.run(function ($rootScope) {
     $rootScope.copyright = d.getFullYear();
 });
 
+
 // configure our routes
 // urls that map to views/controllers
-/*
 app.config(function ($routeProvider) {
     $routeProvider
-        //home
-        .when('/', {
+        // pdf file download
+        .when('/pdfDownload', {
             templateUrl: 'pages/pdfDownload.html',
             controller: 'pdfDownloadCtrl'
+        })
+        // tracking page
+        .when('/tracking', {
+            templateUrl: 'pages/tracking.html',
+            controller: 'trackingCtrl'
         })
         .otherwise({
             template: '<h1>404. Page not found!</h1>'
         });
 });
-*/
 
-// customize the theme
-app.config(function ($mdThemingProvider) {
-    $mdThemingProvider.theme('default')
-        .primaryPalette('blue');
-});
+
+
 
 // controller for the pdf file download view
 app.controller('pdfDownloadCtrl', function ($scope, $localStorage, $http, $timeout) {
@@ -88,6 +89,6 @@ app.controller('pdfDownloadCtrl', function ($scope, $localStorage, $http, $timeo
 
 
 // controller for the tracking view
-app.controller('trackingCtrl', function ($scope, $localStorage, $http) {
+app.controller('trackingCtrl', function ($scope) {
 
 });

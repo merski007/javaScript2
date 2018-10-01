@@ -7,6 +7,7 @@
 	<!--angularJS links-->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-route.min.js"></script>
 
 	<!--angularJS material links-->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
@@ -41,24 +42,22 @@
 </head>
 
 <body>
-	<div class="wrapper" ng-controller="pdfDownloadCtrl"></div>
-	<md-content ng-view autoscroll="true">
+	<md-content>
 		<!--<md-toolbar>{{title}}</md-toolbar>-->
 		<md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-			<md-nav-item md-nav-click="goto('pdfDownload')" name="pdfDownload">
-				PDF Download
-			</md-nav-item>
-			<md-nav-item md-nav-click="goto('tracking')" name="tracking">
-				Tracking
-			</md-nav-item>
-			<!--
 			<md-nav-item md-nav-href="#!pdfDownload" name="pdfDownload">
 				PDF Download View
 			</md-nav-item>
-			-->
+			<md-nav-item md-nav-href="#!tracking" name="tracking">
+				Tracking
+			</md-nav-item>
 		</md-nav-bar>
+
+		<!-- Page Content -->
+		<div ng-view>
+
+		</div>
 	</md-content>
-	</div>
 </body>
 
 </html>
