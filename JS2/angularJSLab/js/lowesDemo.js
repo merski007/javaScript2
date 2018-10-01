@@ -39,7 +39,8 @@ app.controller('pdfDownloadCtrl', function ($scope, $localStorage, $http, $timeo
         $scope.weeks = data.data;
     });
 
-    $scope.testList = ['one', 'two', 'three'];
+    // test list to make sure md-list was working
+    //$scope.testList = ['one', 'two', 'three'];
 
     //create a blank array to store selected objects.
     $scope.selected = {
