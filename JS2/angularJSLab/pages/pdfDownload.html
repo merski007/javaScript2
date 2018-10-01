@@ -26,8 +26,15 @@
             </div>
         </md-card-content>
 
-
         <!-- file list -->
+        <md-list>
+            <md-subheader class="md-no-sticky">Weekly File List</md-subheader>
+            <!--<md-list-item ng-repeat="file in selectedWeek.pdfFiles | filter: search">-->
+            <md-list-item ng-repeat="x in testList">
+                <md-checkbox class="primary"></md-checkbox>
+                <p>{{x}}</p>
+            </md-list-item>
+        </md-list>
 
         <!-- checkAll and uncheckAll buttons-->
 
