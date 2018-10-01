@@ -14,7 +14,7 @@
                     <label>Select week</label>
                     <md-select ng-model="selectedWeek">
                         <md-option><em>None</em></md-option>
-                        <md-option ng-repeat="week in weeks" ng-value="week.week">
+                        <md-option ng-repeat="week in weeks" ng-value="week" ng-model="selectedWeek">
                             {{week.week}}
                         </md-option>
                     </md-select>
@@ -30,9 +30,10 @@
         <md-list>
             <md-subheader class="md-no-sticky">Weekly File List</md-subheader>
             <!--<md-list-item ng-repeat="file in selectedWeek.pdfFiles | filter: search">-->
-            <md-list-item ng-repeat="x in testList">
+            <p ng-if="selectedWeek.pdfFiles">File name : File description</p>
+            <md-list-item ng-repeat="file in selectedWeek.pdfFiles">
                 <md-checkbox class="primary"></md-checkbox>
-                <p>{{x}}</p>
+                <p>{{file.fileName}} : {{file.description}}</p>
             </md-list-item>
         </md-list>
 
