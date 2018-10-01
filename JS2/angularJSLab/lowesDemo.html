@@ -41,31 +41,18 @@
 </head>
 
 <body ng-app="lowesApp">
-	<div class="wrapper" ng-controller="pdfFileCtrl">
-		<select ng-model="selectedWeek" ng-options="week.week for week in weeks" ng-change="uncheckAll()"></select>
-		<input type="text" ng-model="search">
-		<!-- test code to see what the path will be to return filenames -->
-		<!--<h1>You selected: {{selectedWeek.pdfFiles[0].fileName}}</h1>-->
-		<ul>fileName : description
-			<li ng-repeat="file in selectedWeek.pdfFiles | filter: search">
-				<label>
-					<input type="checkbox" checklist-value="file" checklist-model="selected.files">
-					{{file.fileName}} : {{file.description}}
-				</label>
-			</li>
-		</ul>
-		<p>files: {{selectedWeek.pdfFiles}}</p>
-		<p>selected files: {{selected.files}}</p>
-		<ul>
-			<li ng-repeat="x in selected.files">
-				<a href="http://127.0.0.1:5500/pdfFiles/{{x.fileName}}.pdf">{{x.fileName}}</a>
-			</li>
-		</ul>
-		<button ng-click="checkAll()">Check all</button>
-		<button ng-click="uncheckAll()">Uncheck all</button>
-		<br>
-		<button ng-if="selected.files.length" ng-click="download()">Download File(s)</button>
-		<br>
+	<div class="wrapper" ng-controller="pdfDownloadCtrl"></div>
+	<md-content ng-view autoscroll="true">
+		<!--<md-toolbar>{{title}}</md-toolbar>-->
+		<md-nav-bar md-no-ink-bar="disableInkBar" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+			<md-nav-item md-nav-click="goto('pdfDownload')" name="pdfDownload">
+				PDF Download
+			</md-nav-item>
+			<md-nav-item md-nav-click="goto('tracking')" name="tracking">
+				Tracking
+			</md-nav-item>
+		</md-nav-bar>
+	</md-content>
 	</div>
 </body>
 

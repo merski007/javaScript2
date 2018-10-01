@@ -1,18 +1,33 @@
 // define our app "name" and "plugins" used
 var app = angular.module('lowesApp', ['ngStorage', 'ngMaterial', 'ngMessages', 'checklist-model']);
 
-// bootstrap app to PTI
-/* can't apply this because PTI assigns ng="masterApp" on html tag
-angular.element(document).ready(function () {
-    angular.bootstrap(document.getElementById('lowesApp'), ['lowesApp']);
+// configure our routes
+// urls that map to views/controllers
+/*
+app.config(function ($routeProvider) {
+    $routeProvider
+        //home
+        .when('/', {
+            templateUrl: 'pages/pdfDownload.html',
+            controller: 'pdfDownloadCtrl'
+        })
+        .otherwise({
+            template: '<h1>404. Page not found!</h1>'
+        });
 });
 */
 
-// path variable that can be switched one posting files to a different server
-var path = 'http://mmersenski.bitlampsites.com/js2/'
+// customize the theme
+app.config(function ($mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+        .primaryPalette('blue');
+});
 
 // controller for the pdf file download view
-app.controller('pdfFileCtrl', function ($scope, $localStorage, $http, $timeout) {
+app.controller('pdfDownloadCtrl', function ($scope, $localStorage, $http, $timeout) {
+    // title variable
+    $scope.title = 'PDF File Download';
+
     // data for weeks dropdown menu
     $http.get('dataFile.json').then(function (data) {
         $scope.weeks = data.data;
