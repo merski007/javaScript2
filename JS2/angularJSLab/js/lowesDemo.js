@@ -1,6 +1,13 @@
 // define our app "name" and "plugins" used
 var app = angular.module('lowesApp', ['ngStorage', 'ngMaterial', 'ngMessages', 'checklist-model']);
 
+// define some global variables available to the entire app
+app.run(function ($rootScope) {
+    var d = new Date();
+    $rootScope.appName = 'Lowes App';
+    $rootScope.copyright = d.getFullYear();
+});
+
 // configure our routes
 // urls that map to views/controllers
 /*

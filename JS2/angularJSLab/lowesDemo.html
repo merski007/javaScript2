@@ -1,8 +1,8 @@
 <!doctype html>
-<html>
+<html ng-app="lowesApp">
 
 <head>
-	<title>PDF File Download</title>
+	<title>{{appName}}</title>
 
 	<!--angularJS links-->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
@@ -40,7 +40,7 @@
 	</style>
 </head>
 
-<body ng-app="lowesApp">
+<body>
 	<div class="wrapper" ng-controller="pdfDownloadCtrl"></div>
 	<md-content ng-view autoscroll="true">
 		<!--<md-toolbar>{{title}}</md-toolbar>-->
@@ -51,6 +51,11 @@
 			<md-nav-item md-nav-click="goto('tracking')" name="tracking">
 				Tracking
 			</md-nav-item>
+			<!--
+			<md-nav-item md-nav-href="#!pdfDownload" name="pdfDownload">
+				PDF Download View
+			</md-nav-item>
+			-->
 		</md-nav-bar>
 	</md-content>
 	</div>
