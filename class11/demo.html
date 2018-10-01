@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+
+<head>
+	<!--angularJS links-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
+
+	<!--angularJS material links-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+
+	<!-- Angular Material Library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+
+	<!--my JS file-->
+	<script src="demo.js"></script>
+
+	<!--angularJS material css link-->
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+	<style>
+		li {
+				list-style: none;
+			}
+	
+			.complete {
+				text-decoration: line-through;
+				color: gray;
+			}
+		</style>
+</head>
+
+<body ng-app="todoApp">
+	<div class="md-padding" ng-controller="todoCtrl">
+		<div layout="column" layout-gt-xs="row">
+			<div flex-gt-xs="60">
+				<h1>My Todos:</h1>
+				<md-list>
+
+					<md-subheader>Need to do {{getIncompleteTodos().length}}:</md-subheader>
+
+					<ng-include src="templates/todo.html"></ng-include>
+
+					<md-divider></md-divider>
+
+					<md-subheader>Done: {{getCompleteTodos().length}}</md-subheader>
+					<md-list-item ng-repeat="todo in getCompleteTodos() | orderBy: 'text'">
+						<md-checkbox class="md-primary" ng-model="todo.done"></md-checkbox>
+						<span class="complete">{{todo.text}}</span>
+					</md-list-item>
+
+				</md-list>
+				<md-button class="md-raised md-warn" ng-click="clearCompleted()">Clear Completed</md-button>
+			</div>
+			<md-divider></md-divider>
+			<div class="md-padding" flex-gt-xs="40">
+				<!--ng-submit will allow users to hit the return key to enter-->
+				<form ng-submit="addTodo()">
+					<md-input-container>
+						<label>New Todo:</label>
+						<input type="text" ng-model="newTodo" required>
+					</md-input-container>
+					<md-button class="md-raised md-primary" type="submit">Add</md-button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
