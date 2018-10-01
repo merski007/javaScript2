@@ -29,8 +29,6 @@ app.config(function ($routeProvider) {
 });
 
 
-
-
 // controller for the pdf file download view
 app.controller('pdfDownloadCtrl', function ($scope, $localStorage, $http, $timeout) {
     // title variable
