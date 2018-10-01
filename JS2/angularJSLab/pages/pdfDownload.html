@@ -27,22 +27,22 @@
         </md-card-content>
 
         <!-- file list -->
-        <md-list>
+        <md-list ng-if="selectedWeek">
             <md-subheader class="md-no-sticky">Weekly File List</md-subheader>
-            <!--<md-list-item ng-repeat="file in selectedWeek.pdfFiles | filter: search">-->
-            <p ng-if="selectedWeek.pdfFiles">File name : File description</p>
-            <md-list-item ng-repeat="file in selectedWeek.pdfFiles">
+            <md-list-item ng-repeat="file in selectedWeek.pdfFiles" ng-class-odd="'odd'">
                 <md-checkbox class="primary" checklist-value="file" checklist-model="selected.files"></md-checkbox>
                 <p>{{file.fileName}} : {{file.description}}</p>
             </md-list-item>
         </md-list>
 
         <!-- checkAll and uncheckAll buttons-->
-        <button ng-if="selectedWeek.pdfFiles" ng-click="checkAll()">Check all</button>
-        <button ng-if="selectedWeek.pdfFiles" ng-click="uncheckAll()">Uncheck all</button>
+        <md-card-actions layout="row">
+            <md-button ng-if="selectedWeek.pdfFiles" ng-click="checkAll()" class="md-primary">Check all</md-button>
+            <md-button ng-if="selectedWeek.pdfFiles" ng-click="uncheckAll()" class="md-primary">Uncheck all</md-button>
 
-        <!-- download button -->
-        <button ng-if="selected.files.length" ng-click="download()">Download File(s)</button>
+            <!-- download button -->
+            <md-button ng-if="selected.files.length" ng-click="download()" class="md-primary">Download File(s)</md-button>
+        </md-card-actions>
 
     </md-card>
 </md-content>
