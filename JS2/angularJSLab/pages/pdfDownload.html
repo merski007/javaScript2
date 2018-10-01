@@ -1,3 +1,37 @@
+<md-content>
+    <md-card>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">File Selection</span>
+                <span class="md-subhead">Select a week from the dropdown below, and then select the file(s) you wish to download</span>
+            </md-card-title-text>
+        </md-card-title>
+
+        <md-card-content>
+            <div layout="row">
+                <md-input-container>
+                    <label>Week Selection</label>
+                    <md-select ng-model="selectedWeek">
+                        <md-option><em>None</em></md-option>
+                        <md-option ng-repeat="week in weeks" ng-value="week.week">
+                            {{week.week}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+        </md-card-content>
+
+    </md-card>
+</md-content>
+
+
+
+
+
+
+
+
+
 <select ng-model="selectedWeek" ng-options="week.week for week in weeks" ng-change="uncheckAll()"></select>
 <input type="text" ng-model="search">
 <!-- test code to see what the path will be to return filenames -->
