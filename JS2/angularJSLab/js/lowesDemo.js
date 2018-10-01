@@ -11,7 +11,7 @@ app.run(function ($rootScope) {
 
 // configure our routes
 // urls that map to views/controllers
-app.config(function ($routeProvider) {
+app.config(function ($routeProvider, $mdThemingProvider) {
     $routeProvider
         // pdf file download
         .when('/pdfDownload', {
@@ -26,6 +26,9 @@ app.config(function ($routeProvider) {
         .otherwise({
             template: '<h1>404. Page not found!</h1>'
         });
+
+    $mdThemingProvider.theme('default')
+        .primaryPalette('blue');
 });
 
 
