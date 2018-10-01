@@ -7,10 +7,11 @@
             </md-card-title-text>
         </md-card-title>
 
+        <!-- user selections/input -->
         <md-card-content>
             <div layout="row">
                 <md-input-container>
-                    <label>Week Selection</label>
+                    <label>Select week</label>
                     <md-select ng-model="selectedWeek">
                         <md-option><em>None</em></md-option>
                         <md-option ng-repeat="week in weeks" ng-value="week.week">
@@ -18,8 +19,19 @@
                         </md-option>
                     </md-select>
                 </md-input-container>
+                <md-input-container class="md-block" flex="20" flex-offset="5">
+                    <label>Search files...</label>
+                    <input ng-model="search">
+                </md-input-container>
             </div>
         </md-card-content>
+
+
+        <!-- file list -->
+
+        <!-- checkAll and uncheckAll buttons-->
+
+        <!-- download button -->
 
     </md-card>
 </md-content>
