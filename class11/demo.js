@@ -25,7 +25,7 @@ app.controller('todoCtrl', function ($scope, $localStorage, $http) {
 
     // custom filter to get completed todos
     $scope.getCompleteTodos = function () {
-        return $scope.$storage.todos.filter(function (todo) {
+        return $scope.todos.filter(function (todo) {
             // return true if we want to keep this item
             return todo.done;
         });
@@ -33,39 +33,35 @@ app.controller('todoCtrl', function ($scope, $localStorage, $http) {
 
     // custom filter to get incomplete todos
     $scope.getIncompleteTodos = function () {
-        return $scope.$storage.todos.filter(function (todo) {
+        return $scope.todos.filter(function (todo) {
             // return true if we want to keep this item
             return !todo.done;
         });
     };
 
     $scope.clearCompleted = function () {
-        $scope.$storage.todos = $scope.getIncompleteTodos();
+        $scope.todos = $scope.getIncompleteTodos();
+    }
+
+    $scope.editTodo = function (todo) {
+        // edit the todo object
+        // objects are passed by reference
+        // string/number/boolean are passed by value
+        //todo.text += " EDITED";
+        todo.edit = !todo.edit;
+
+        // add to cart
+        //$scope.cart.push(todo);
     }
 
 
     // add a method to respond to a button click
     $scope.addTodo = function () {
         // $scope.newTodo will be the value from the text box
-        $scope.$storage.todos.push({ text: $scope.newTodo, done: false });
+        $scope.todos.push({ text: $scope.newTodo, done: false });
         // update model to celar text box
         $scope.newTodo = '';
     }
-
-    // example 20, fetching json, currently not working
-
-    $http.get('countries.json').then(function (data) {
-        $scope.countries = data;
-    });
-
-
-    /* this works
-    $scope.countries = [
-        { "name": "China", "population": 1359821000 },
-        { "name": "India", "population": 1205625000 },
-        { "name": "United States of America", "population": 312247000 }
-    ];
-    */
 
 
 
@@ -78,4 +74,16 @@ app.config(function ($mdThemingProvider) {
         .primaryPalette('pink')
         .accentPalette('orange')
         .dark();
+});
+
+
+// custom directive
+app.directive('todo', function () {
+    return {
+        templateUrl: 'templates/todo.html'
+        // ,controller: ... could specify a custom controller
+        // $scope
+        // etc...
+        // restrict: 'EA'
+    };
 });

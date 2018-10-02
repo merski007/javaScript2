@@ -13,6 +13,7 @@
 
 	<!-- Angular Material Library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<!--my JS file-->
 	<script src="demo.js"></script>
@@ -40,16 +41,25 @@
 
 					<md-subheader>Need to do {{getIncompleteTodos().length}}:</md-subheader>
 
-					<ng-include src="templates/todo.html"></ng-include>
+					<!--
+					<ng-include src="'templates/todo.html'" ng-repeat="todo in getIncompleteTodos()"></ng-include>
+					-->
+					<todo ng-repeat="todo in getIncompleteTodos()"></todo>
 
 					<md-divider></md-divider>
 
 					<md-subheader>Done: {{getCompleteTodos().length}}</md-subheader>
+
+					<todo ng-repeat="todo in getCompleteTodos()"></todo>
+					<!--
+					<ng-include src="'templates/todo.html'" ng-repeat="todo in getCompleteTodos()" class="complete"></ng-include>
+					-->
+					<!--
 					<md-list-item ng-repeat="todo in getCompleteTodos() | orderBy: 'text'">
 						<md-checkbox class="md-primary" ng-model="todo.done"></md-checkbox>
 						<span class="complete">{{todo.text}}</span>
 					</md-list-item>
-
+					-->
 				</md-list>
 				<md-button class="md-raised md-warn" ng-click="clearCompleted()">Clear Completed</md-button>
 			</div>
