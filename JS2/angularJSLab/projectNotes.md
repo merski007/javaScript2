@@ -8,7 +8,7 @@
 # COMPLETE - fileName, description, etc.. (start small for the mockup)
 # COMPLETE - Search bar for user to filter the view in page list
 # COMPLETE - each file will have a checkbox for the user to click on
-    - Download (submit) button for user to click on to download all checked files
+# COMPLETE - Download (submit) button for user to click on to download all checked files
 # COMPLETE - add a select all/clear button
 
 - USPS tracking window
