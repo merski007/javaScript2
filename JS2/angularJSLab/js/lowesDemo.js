@@ -42,7 +42,7 @@ app.controller('pdfDownloadCtrl', function ($scope, $localStorage, $http, $timeo
     $scope.title = 'PDF File Download';
 
     // data for weeks dropdown menu
-    $http.get('http://mmersenski.bitlampsites.com/js2/dataFile.json').then(function (data) {
+    $http.get('dataFile.json').then(function (data) {
         $scope.weeks = data.data;
     });
 
@@ -72,7 +72,7 @@ app.controller('pdfDownloadCtrl', function ($scope, $localStorage, $http, $timeo
         // loop through checked items and package them up
         angular.forEach($scope.selected.files, function (value, key) {
             // load the file from server and add it to the zip file
-            JSZipUtils.getBinaryContent("http://mmersenski.bitlampsites.com/js2/pdfFiles/" + value.fileName + ".pdf", function (err, data) {
+            JSZipUtils.getBinaryContent("http://127.0.0.1:5500/pdfFiles/" + value.fileName + ".pdf", function (err, data) {
                 if (err) {
                     throw err; // TODO, handle error or notify user an error occurred
                 }
