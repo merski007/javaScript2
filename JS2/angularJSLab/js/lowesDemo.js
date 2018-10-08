@@ -72,7 +72,7 @@ app.controller('pdfDownloadCtrl', function ($scope, $localStorage, $http, $timeo
         // loop through checked items and package them up
         angular.forEach($scope.selected.files, function (value, key) {
             // load the file from server and add it to the zip file
-            JSZipUtils.getBinaryContent("http://127.0.0.1:5500/pdfFiles/" + value.fileName + ".pdf", function (err, data) {
+            JSZipUtils.getBinaryContent("pdfFiles/" + value.fileName + ".pdf", function (err, data) {
                 if (err) {
                     throw err; // TODO, handle error or notify user an error occurred
                 }
