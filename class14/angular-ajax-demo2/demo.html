@@ -1,0 +1,57 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+<meta charset="UTF-8">
+<title>Places</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+	
+	<script src="demo.js"></script>
+	
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+</head>
+
+<body>
+	
+<div ng-controller="placesCtrl" class="md-padding"> 
+
+	<h1>Find Nearby Places</h1>
+	<form>
+		<md-input-container>
+			<label>Place</label>
+			<input ng-model="searchPlace">
+		</md-input-container>
+		
+		<md-button class="md-raised md-primary" ng-click="getPlaces()"><md-icon aria-label="Search">search</md-icon></md-button>
+	</form>
+	<div>
+		<md-card ng-repeat="place in places | orderBy : 'location.distance'">
+			<md-card-title>
+			  <md-card-title-text>
+				<span class="md-headline">{{place.name}}</span>
+				<span class="md-subhead">{{place.location.city}}, {{place.location.state}}<br>
+				{{(place.location.distance * .0006).toFixed(2)}} miles away!</span>
+			  </md-card-title-text>
+			  <md-card-title-media>
+				<div class="md-media-lg card-media"></div>
+				  
+			  </md-card-title-media>
+			</md-card-title>
+			<md-card-body>
+				{{place.photos.groups[1].count}} photos.
+				<img ng-repeat="photo in place.photos.groups[1].items" ng-src="{{photo.prefix}}original{{photo.suffix}}" alt="">
+			</md-card-body>
+			<md-card-actions layout="row" layout-align="end center">
+			  <md-button ng-click="getDetails(place)">Details</md-button>
+			  <md-button>Action 2</md-button>
+			</md-card-actions>
+		  </md-card>
+	</div>
+</div>
+	
+</body>
+</html>
