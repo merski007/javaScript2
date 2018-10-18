@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Firebase Demo</title>
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+<script src="demo.js"></script>
+
+</head>
+
+<body>
+<h1>Todos!</h1>
+
+<form id="addTodoForm">
+	<p><label>Todo: <input id="newTodo" type="text"></label></p>
+	
+	<p><label>Due Date: <input id="newDueDate" type="text"></label></p>
+	
+	<p><input type="submit" value="submit"></p>
+</form>
+
+<h3>Todos:</h3>
+<ul id="todoList"></ul>
+
+</body>
+</html>
