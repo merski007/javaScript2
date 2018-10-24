@@ -13,7 +13,17 @@ app.controller('authCtrl', function ($scope, $firebaseAuth, $firebaseObject) {
 	$scope.user = null; // our user's details or record
 
 	// on login or logout
-	// ...
+	$scope.authObj.$onAuthStateChanged(function (firebaseUser) {
+		if (firebaseUser) {
+			console.log("Signed in as:", firebaseUser.uid);
+			$scope.authUser = firebaseUser;
+			$scope.user = $firebaseObject(app.firebaseRef.child('users').child($scope.authUser.uid));
+		} else {
+			console.log("Signed out");
+			$scope.authUser = null;
+			$scope.user = null;
+		}
+	});
 
 
 	// button methods
@@ -23,7 +33,6 @@ app.controller('authCtrl', function ($scope, $firebaseAuth, $firebaseObject) {
 		// validate input
 
 		// create user - pass username and password to this method
-		// ...
 		$scope.authObj.$createUserWithEmailAndPassword("my@email.com", "mypassword")
 			.then(function (firebaseUser) {
 				console.log("User " + firebaseUser.uid + " created successfully!");
@@ -38,8 +47,21 @@ app.controller('authCtrl', function ($scope, $firebaseAuth, $firebaseObject) {
 		// validate input
 
 		// login - pass username and password to this method
-		// ...
+		$scope.authObj.$signInWithEmailAndPassword("my@email.com", "mypassword").then(function (firebaseUser) {
+			console.log("Signed in as:", firebaseUser.uid);
+		}).catch(function (error) {
+			console.error("Authentication failed:", error);
+		});
 	};
+
+	$scope.loginAnon = function () {
+		// login anonymously
+		$scope.authObj.$signInAnonymously().then(function (firebaseUser) {
+			console.log("Signed in as:", firebaseUser.uid);
+		}).catch(function (error) {
+			console.error("Authentication failed:", error);
+		});
+	}
 
 	$scope.updateUser = function () {
 		// validate the form
@@ -49,12 +71,13 @@ app.controller('authCtrl', function ($scope, $firebaseAuth, $firebaseObject) {
 
 		// store data with user
 		// stores in /users/lkada9ae89slsekljklse/firstname = "Tyler"
-		// ...
+		app.firebaseRef.child('users').child($scope.authUser.uid).update(data);
 	};
 
 	$scope.logout = function () {
 		// sign out
-		// ...
+		$scope.user.destroy();	// cancels event listeners before signout
+		$scope.authObj.$signOut();
 	};
 
 }); // end authCtrl
@@ -70,7 +93,23 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth, $fir
 	$scope.authUser = null; // authenticated user object	
 
 	// bind a firebase array/collection to our model
-	$scope.todos = $firebaseArray(app.firebaseRef.child('ng-todos'));
+	//$scope.todos = $firebaseArray(app.firebaseRef.child('ng-todos'));
+	$scope.todos = [];
+
+	// on login or logout
+	$scope.authObj.$onAuthStateChanged(function (firebaseUser) {
+		if (firebaseUser) {
+			console.log("Signed in as:", firebaseUser.uid);
+			$scope.authUser = firebaseUser;
+			$scope.todos = $firebaseArray(app.firebaseRef.child('users').child($scope.authUser.uid).child('todos'));
+			//$scope.user = $firebaseObject(app.firebaseRef.child('users').child($scope.authUser.uid));
+		} else {
+			console.log("Signed out");
+			$scope.authUser = null;
+			//$scope.user = null;
+			$scope.todos = [];
+		}
+	});
 
 	// example of a custom filter
 	// returns an array of incomplete todos

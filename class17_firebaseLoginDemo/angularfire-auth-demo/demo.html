@@ -1,16 +1,17 @@
 <!doctype html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Angular Demo</title>
+	<meta charset="UTF-8">
+	<title>Angular Demo</title>
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
-<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+	<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
 
-<script src="demo.js"></script>
-<style>
-	.complete {text-decoration: line-through; color: gray;}	
+	<script src="demo.js"></script>
+	<style>
+		.complete {text-decoration: line-through; color: gray;}	
 </style>
 
 </head>
@@ -19,18 +20,19 @@
 	<div class="wrapper" ng-controller="authCtrl">
 		<button ng-click="createUser()" ng-hide="authUser">Create User</button>
 		<button ng-click="login()" ng-hide="authUser">Login</button>
+		<button ng-click="login()" ng-hide="authUser">Login Anon (guest checkout)</button>
 		<button ng-click="updateUser()" ng-show="authUser">Update User</button>
 		<button ng-click="logout()" ng-show="authUser">Logout</button>
 		<br>
-		<div ng-show="authUser"> 
-			Logged in as: <br>
-			Welcome 
+		<div ng-show="authUser">
+			Logged in as: {{authUser.email}} <br>
+			Welcome {{user.firstname}} {{user.lastname}}
 		</div>
 	</div>
-	
+
 	<div class="wrapper" ng-controller="todoCtrl">
 		<h1>My Todos: {{todos.length}}</h1>
-		
+
 		<h3>Need to do: {{getIncompleteTodos().length}}</h3>
 		<ul>
 			<li ng-repeat="todo in getIncompleteTodos()">
@@ -43,11 +45,11 @@
 		<form>
 			<label>New todo: <input type="text" ng-model="newTodo"></label>
 			<label>Due date: <input type="text" ng-model="newDate"></label>
-			<button ng-click="addTodo()">Add</button>	
+			<button ng-click="addTodo()">Add</button>
 		</form>
-		
+
 		<hr>
-		
+
 		<h3>Done: {{getCompleteTodos().length}}</h3>
 		<ul>
 			<li ng-repeat="todo in getCompleteTodos()">
@@ -61,4 +63,5 @@
 	</div>
 
 </body>
+
 </html>
