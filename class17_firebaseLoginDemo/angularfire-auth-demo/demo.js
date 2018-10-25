@@ -76,7 +76,7 @@ app.controller('authCtrl', function ($scope, $firebaseAuth, $firebaseObject) {
 
 	$scope.logout = function () {
 		// sign out
-		$scope.user.destroy();	// cancels event listeners before signout
+		$scope.user.$destroy();	// cancels event listeners before signout
 		$scope.authObj.$signOut();
 	};
 
@@ -101,7 +101,7 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth, $fir
 		if (firebaseUser) {
 			console.log("Signed in as:", firebaseUser.uid);
 			$scope.authUser = firebaseUser;
-			$scope.todos = $firebaseArray(app.firebaseRef.child('users').child($scope.authUser.uid).child('todos'));
+			$scope.todos = $firebaseArray(app.firebaseRef.child('users').child($scope.authUser.uid).child('ng-todos'));
 			//$scope.user = $firebaseObject(app.firebaseRef.child('users').child($scope.authUser.uid));
 		} else {
 			console.log("Signed out");
