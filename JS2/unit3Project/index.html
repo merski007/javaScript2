@@ -10,12 +10,28 @@
     <!-- AngularJS CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
 
+    <!-- Firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
     <!-- Site JS -->
     <script src="js/site.js"></script>
 
 </head>
 
-<body ng-controller='todoCtrl'>
+<body>
+    <div ng-controller='authCtrl'>
+        <h3>Login</h3>
+        <button ng-click="createUser()" ng-hide="authUser">Create User</button>
+        <button ng-click="login()" ng-hide="authUser">Login</button>
+        <button ng-click="updateUser()" ng-show="authUser">Update User</button>
+        <button ng-click="logout()" ng-show="authUser">Logout</button>
+        <br>
+        <div ng-show="authUser">
+            Logged in as: {{authUser.email}} <br>
+            <!--Welcome {{user.firstname}} {{user.lastname}}-->
+        </div>
+    </div>
     <div ng-controller='todoCtrl'>
         <h3>My Todos:</h3>
         <label>New todo: <input type='text' ng-model='newTodo'></label>
