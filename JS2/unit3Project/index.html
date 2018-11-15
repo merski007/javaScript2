@@ -16,7 +16,23 @@
 </head>
 
 <body ng-controller='todoCtrl'>
-    <h1>{{greeting}}</h1>
+    <div ng-controller='todoCtrl'>
+        <h3>My Todos:</h3>
+        <p>Need to do {{getIncompleteTodos().length}} todos:</p>
+        <ul>
+            <li ng-repeat='todo in getIncompleteTodos()'>
+                <input type='checkbox' ng-model='todo.done'>
+                {{todo.text}}
+            </li>
+        </ul>
+        <p>Completed {{getCompleteTodos().length}} todos:</p>
+        <ul>
+            <li ng-repeat='todo in getCompleteTodos()'>
+                <input type='checkbox' ng-model='todo.done'>
+                {{todo.text}}
+            </li>
+        </ul>
+    </div>
 </body>
 
 </html>
