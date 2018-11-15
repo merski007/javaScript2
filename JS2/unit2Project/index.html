@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="petesBikeShop">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>{{appName}}</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="img/favicon.ico" />
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Angular and Bootstrap core JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-route.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+
+  <!-- firebase database -->
+  <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
+  <!-- AngularJS UI Boostrap 4 and required libraries  -->
+  <!-- https://morgul.github.io/ui-bootstrap4/ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-animate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-touch.min.js"></script>
+  <script src="vendor/ui-bootstrap/js/ui-bootstrap-tpls-3.0.4.min.js"></script>
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Plugin CSS -->
+  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="css/freelancer.css" rel="stylesheet">
+
+  <!-- Our JS code -->
+  <script src="js/petesBikeShop.js"></script>
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#">{{appName}}</a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+
+          <li class="nav-item mx-0 mx-lg-1">
+            <div ng-controller="productsController">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#!shoppingCart" ng-show="authUser"><i class="fas fa-shopping-cart"></i> ({{cart.length}})</a>
+            </div>
+          </li>
+
+          <li class="nav-item mx-0 mx-lg-1">
+            <div ng-controller="authCtrl">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded" href="" ng-click="openModal()" ng-hide="authUser">Sign In</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded" href="" ng-click="logout()" ng-show="authUser">Sign Out</a>
+            </div>
+          </li>
+
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger btn-danger" href="#startHere">{{startText}}</a>
+          </li>
+          <!-- turning off additional links for now
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Accessories</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
+          </li>
+        -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container" ng-view autoscroll="true">
+
+  </div>
+
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Location</h4>
+          <p class="lead mb-0">5373 N Port Washington Rd
+            <br>Glendale, WI 53217</p>
+        </div>
+        <div class="col-md-4">
+          <h4 class="text-uppercase mb-4">About Pete's Bike Shop</h4>
+          <p class="lead mb-0">This is the best, local bike shop in all of Milwaukee. We'll set you up properly and have you rolling in no time!</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="copyright py-4 text-center text-white">
+    <div class="container">
+      <small>Copyright &copy; {{appName}} {{copyright}}.</small>
+    </div>
+  </div>
+
+  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+  <div class="scroll-to-top d-lg-none position-fixed ">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/freelancer.js"></script>
+
+</body>
+
+</html>

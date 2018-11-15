@@ -1,0 +1,67 @@
+<div class="row" style="padding-top:120px;">
+    <!-- left hand nav
+    <div class="col-lg-3">
+        <h1 class="my-4">Products</h1>
+        <div class="list-group">
+            <a href="" class="list-group-item" ng-click="changeCategory(1)">Category 1</a>
+            <a href="" class="list-group-item" ng-click="changeCategory(2)">Category 2</a>
+            <a href="" class="list-group-item" ng-click="changeCategory(3)">Category 3</a>
+        </div>
+        <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
+    </div>
+    -->
+    <!-- /.col-lg-3 -->
+
+    <div class="col-lg-9">
+
+        <!-- UIB Carousel
+        <div style="height: 350px" class="my-4">
+            <div uib-carousel active="0" interval="3000" template-url="vendor/ui-bootstrap/template/carousel/carousel.html">
+                <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id"> <img ng-src="{{slide.image}}" style="margin:auto;">
+                    <div class="carousel-caption">
+                        <h4>Slide Title</h4>
+                        <p>{{slide.text}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    -->
+
+        <!-- Product Listing -->
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4" ng-repeat="item in inventory | filter:{category:category} | filter:{type:type}">
+                <div class="card h-100">
+                    <img class="card-img-top" src="img/{{item.img}}" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">{{item.description}}</h4>
+                        <h5>{{item.price | currency}}</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn-primary" ng-click="addItem(item)">Add to Cart, id:{{item.id}}</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.col-lg-9 -->
+
+        <!-- cart
+        <div class="row">
+            <h2>Your Cart:</h2>
+            <ul>
+                <li class="animate-repeat" ng-repeat="item in cart | orderBy:'category'">
+                    <span>{{ item.qty + ' x ' + item.description + ' = ' + (getCost(item) | currency) }}</span>
+                    <button class="btn-danger btn-xs" ng-click="removeItem(item);">Remove Item</button>
+                    </br>
+                    </br>
+                </li>
+            </ul>
+            <h3>Total: {{ getTotal() | currency }}</h3>
+            <button class="btn-danger" ng-click="clearCart();">Clear Cart</button>
+        </div>
+        -->
+    </div>
+    <!-- /.row -->
+</div>
