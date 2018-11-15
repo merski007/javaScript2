@@ -1,16 +1,22 @@
 <!doctype html>
-<html>
+<html ng-app='todoApp'>
 
 <head>
     <title>Git-R-Done</title>
 
-    <!-- Favicon 
-<link rel="shortcut icon" href="img/favicon.ico" /> -->
+    <!-- Favicon -->
+    <!-- <link rel="shortcut icon" href="img/favicon.ico" /> -->
+
+    <!-- AngularJS CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+
+    <!-- Site JS -->
+    <script src="js/site.js"></script>
 
 </head>
 
-<body>
-    <h1>This is where the magic happens :)</h1>
+<body ng-controller='todoCtrl'>
+    <h1>{{greeting}}</h1>
 </body>
 
 </html>
