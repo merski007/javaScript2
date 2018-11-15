@@ -18,6 +18,9 @@
 <body ng-controller='todoCtrl'>
     <div ng-controller='todoCtrl'>
         <h3>My Todos:</h3>
+        <label>New todo: <input type='text' ng-model='newTodo'></label>
+        <button ng-click='addTodo()'>Add</button>
+        <hr>
         <p>Need to do {{getIncompleteTodos().length}} todos:</p>
         <ul>
             <li ng-repeat='todo in getIncompleteTodos()'>
@@ -25,6 +28,7 @@
                 {{todo.text}}
             </li>
         </ul>
+        <hr>
         <p>Completed {{getCompleteTodos().length}} todos:</p>
         <ul>
             <li ng-repeat='todo in getCompleteTodos()'>
@@ -32,6 +36,8 @@
                 {{todo.text}}
             </li>
         </ul>
+        <hr>
+        <button type='submit' ng-click='clearCompleted()'>Clear completed</button>
     </div>
 </body>
 
