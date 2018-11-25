@@ -38,11 +38,52 @@
     <div ng-controller='todoCtrl'>
         <h3>My Todos:</h3>
         <label>New todo: <input type='text' ng-model='newTodo'></label>
+        <label>Group:
+            <select ng-model='group'>
+                <option value="0" ng-selected="selected">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </label>
         <button ng-click='addTodo()'>Add</button>
         <hr>
-        <p>Need to do {{getIncompleteTodos().length}} todos:</p>
+        <p>Uncategorized todos ({{getIncompleteTodos('0').length}}):</p>
         <ul>
-            <li ng-repeat='todo in getIncompleteTodos()'>
+            <li ng-repeat='todo in getIncompleteTodos("0")'>
+                <input type='checkbox' ng-model='todo.done'>
+                {{todo.text}}
+            </li>
+        </ul>
+        <hr>
+        <p>Group 1 todos ({{getIncompleteTodos('1').length}}):</p>
+        <ul>
+            <li ng-repeat='todo in getIncompleteTodos("1")'>
+                <input type='checkbox' ng-model='todo.done'>
+                {{todo.text}}
+            </li>
+        </ul>
+        <hr>
+        <p>Group 2 todos ({{getIncompleteTodos('2').length}}):</p>
+        <ul>
+            <li ng-repeat='todo in getIncompleteTodos("2")'>
+                <input type='checkbox' ng-model='todo.done'>
+                {{todo.text}}
+            </li>
+        </ul>
+        <hr>
+        <p>Group 3 todos ({{getIncompleteTodos('3').length}}):</p>
+        <ul>
+            <li ng-repeat='todo in getIncompleteTodos("3")'>
+                <input type='checkbox' ng-model='todo.done'>
+                {{todo.text}}
+            </li>
+        </ul>
+        <hr>
+        <p>Group 4 todos ({{getIncompleteTodos('4').length}}):</p>
+        <ul>
+            <li ng-repeat='todo in getIncompleteTodos("4")'>
                 <input type='checkbox' ng-model='todo.done'>
                 {{todo.text}}
             </li>

@@ -1,7 +1,6 @@
 var app = angular.module('todoApp', ['firebase']);
 
 app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
-
     // init firebase
     app.initFirebase();
 
@@ -14,6 +13,8 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
     // bind a firebase array/collection to our model
     //$scope.todos = $firebaseArray(app.firebaseRef.child('ng-todos'));
     $scope.todos = [];
+    // default group selection // 0 = uncategorized
+    $scope.group = '0';
 
     // on login or logout
     $scope.authObj.$onAuthStateChanged(function (firebaseUser) {
@@ -46,9 +47,18 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
     };
 
     // custom filter to get incomplete todos
+    /*
     $scope.getIncompleteTodos = function () {
         return $scope.todos.filter(function (todo) {
             return !todo.done;
+        });
+    };
+    */
+
+    // custom filter to get incomplete todos
+    $scope.getIncompleteTodos = function (groupNumber) {
+        return $scope.todos.filter(function (todo) {
+            return !todo.done && todo.group == groupNumber;
         });
     };
 
@@ -64,9 +74,10 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
         //$scope.todos.push({ text: $scope.newTodo, done: false });
         // add new todo to database
         //$scope.todos.$add({ text: $scope.newTodo, duedate: $scope.newDate, done: false });
-        $scope.todos.$add({ text: $scope.newTodo, done: false });
-        // update model to clear text box
+        $scope.todos.$add({ text: $scope.newTodo, group: $scope.group, done: false });
+        // update model to clear todo fields
         $scope.newTodo = '';
+        $scope.group = '0';
     }
 
     $scope.updateTodo = function (todo) {
