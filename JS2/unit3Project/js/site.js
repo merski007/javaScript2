@@ -1,5 +1,15 @@
 var app = angular.module('todoApp', ['firebase', 'ngMaterial', 'ngMessages']);
 
+// define some global variables available to the entire app
+app.run(function ($rootScope) {
+    var d = new Date();
+    $rootScope.appName = 'TaskMaster - 2018';
+    $rootScope.copyright = d.getFullYear();
+    $rootScope.isActive = function (viewPath) {
+        return viewPath == $location.path();
+    }
+});
+
 app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
     // init firebase
     app.initFirebase();
