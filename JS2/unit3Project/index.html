@@ -35,12 +35,14 @@
 
 
 <body>
-    <div layout='column' ng-controller="appCtrl">
+    <div layout='column' ng-controller='authCtrl'>
         <!-- Header: START -->
         <md-toolbar>
             <div class='md-toolbar-tools'>
                 <h2 md-truncate flex><b>{{appName}}</b></h2>
-                <md-button ng-click="toggleRight()" ng-hide="isOpenRight()">Sign In <md-icon md-font-library="material-icons">account_box</md-icon>
+                <md-button ng-click="toggleRight()" ng-hide="isOpenRight() || authUser">Sign In <md-icon md-font-library="material-icons">account_box</md-icon>
+                </md-button>
+                <md-button ng-click="logout()" ng-show="isOpenRight() || authUser">Sign Out <md-icon md-font-library="material-icons">account_box</md-icon>
                 </md-button>
             </div>
         </md-toolbar>
@@ -51,14 +53,12 @@
 
             <md-toolbar class='md-theme-light'>
                 <div ng-controller='authCtrl'>
-                    <h1 class='md-toolbar-tools' ng-hide="authUser">Sign In
-                    </h1>
-                    <h1 class='md-toolbar-tools' ng-show="authUser">Sign Out
+                    <h1 class='md-toolbar-tools'>Sign In
                     </h1>
                 </div>
             </md-toolbar>
-            <md-content ng-controller='RightCtrl' layout-padding>
-                <form name='userLogin' ng-controller='authCtrl'>
+            <md-content layout-padding>
+                <form name='userLogin'>
                     <md-input-container>
                         <label>Email</label>
                         <input required name='userEmail' ng-model='userEmail' type='email' md-autofocus>
@@ -88,6 +88,7 @@
 
 
     </div>
+    <!--
     <div ng-controller='authCtrl'>
         <h3>Login</h3>
         <label>email: <input type='text' ng-model='userEmail'></label>
@@ -102,6 +103,7 @@
             Logged in as: {{authUser.email}} <br>
         </div>
     </div>
+    -->
     <div ng-controller='todoCtrl'>
         <h3>My Todos:</h3>
         <label>New todo: <input type='text' ng-model='newTodo'></label>
