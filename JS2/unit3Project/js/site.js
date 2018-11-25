@@ -1,4 +1,4 @@
-var app = angular.module('todoApp', ['firebase']);
+var app = angular.module('todoApp', ['firebase', 'ngMaterial', 'ngMessages']);
 
 app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
     // init firebase
