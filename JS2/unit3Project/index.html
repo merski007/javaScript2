@@ -22,6 +22,9 @@
 <body>
     <div ng-controller='authCtrl'>
         <h3>Login</h3>
+        <label>email: <input type='text' ng-model='userEmail'></label>
+        <label>password: <input type='text' ng-model='userPassword'></label>
+        <br>
         <button ng-click="createUser()" ng-hide="authUser">Create User</button>
         <button ng-click="login()" ng-hide="authUser">Login</button>
         <button ng-click="updateUser()" ng-show="authUser">Update User</button>
