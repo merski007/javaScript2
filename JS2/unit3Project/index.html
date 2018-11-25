@@ -35,14 +35,58 @@
 
 
 <body>
-    <div layout='column'>
+    <div layout='column' ng-controller="appCtrl">
+        <!-- Header: START -->
         <md-toolbar>
             <div class='md-toolbar-tools'>
                 <h2 md-truncate flex><b>{{appName}}</b></h2>
-                <md-button>Sign In <md-icon md-font-library="material-icons">account_box</md-icon>
+                <md-button ng-click="toggleRight()" ng-hide="isOpenRight()">Sign In <md-icon md-font-library="material-icons">account_box</md-icon>
                 </md-button>
             </div>
         </md-toolbar>
+        <!-- Header: END-->
+
+        <!-- Right side nav for login: START -->
+        <md-sidenav class='md-sidenav-right md-whiteframe-4dp' md-component-id='right'>
+
+            <md-toolbar class='md-theme-light'>
+                <div ng-controller='authCtrl'>
+                    <h1 class='md-toolbar-tools' ng-hide="authUser">Sign In
+                    </h1>
+                    <h1 class='md-toolbar-tools' ng-show="authUser">Sign Out
+                    </h1>
+                </div>
+            </md-toolbar>
+            <md-content ng-controller='RightCtrl' layout-padding>
+                <form name='userLogin' ng-controller='authCtrl'>
+                    <md-input-container>
+                        <label>Email</label>
+                        <input required name='userEmail' ng-model='userEmail' type='email' md-autofocus>
+                        <div ng-messages='userLogin.userEmail.$error'>
+                            <div ng-message="email">This field must be a valid email address.</div>
+                            <div ng-message="required">Uh-oh, looks like you forgot something.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Password</label>
+                        <input required name='userPassword' ng-model='userPassword' type='password' minlength="6">
+                        <div ng-messages='userLogin.userPassword.$error'>
+                            <div ng-message='required'>Uh-oh, looks like you forgot something.</div>
+                            <div ng-message="minlength">That's too short!</div>
+                        </div>
+                    </md-input-container>
+                    <md-button class="md-primary md-raised" ng-click="login()">Login</md-button>
+                    <md-button class="md-accent md-raised" ng-click="createUser()">Create User</md-button>
+                </form>
+                <md-button ng-click="close()" class="md-primary">
+                    Close Sidenav
+                </md-button>
+            </md-content>
+
+        </md-sidenav>
+        <!-- Right side nav for login: END -->
+
+
     </div>
     <div ng-controller='authCtrl'>
         <h3>Login</h3>
