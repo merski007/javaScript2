@@ -168,6 +168,11 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
 
 
 app.controller('authCtrl', function ($scope, $firebaseAuth, $firebaseObject) {
+    // right side nav
+    $scope.openRightMenu = function () {
+        $mdSidenav('left').toggle();
+    };
+
     // initalize database
     app.initFirebase();
 
