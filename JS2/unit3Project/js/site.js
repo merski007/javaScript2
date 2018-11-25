@@ -196,3 +196,9 @@ app.initFirebase = function () {
         app.firebaseRef = firebase.database().ref('/');
     }
 };
+
+// customize the them
+app.config(function ($mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+        .primaryPalette('orange');
+});
