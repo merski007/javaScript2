@@ -173,68 +173,79 @@
     -->
 
     <!-- Page grid -->
-    <div layout="row" layout-xs="column">
-        <!-- Left side cards -->
-        <div layout="column" class="leftSideCard">
-            <!--
-            <div class="card" flex>New TODO Area</div>
-            <div class="card" flex>Unassigned TODOs list</div>
-            <div class="card" flex>Complete TODOs list</div>
-            -->
-            <md-card>
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">New TODO</span>
-                        <span class="md-subhead">create a TODO here</span>
-                    </md-card-title-text>
-                </md-card-title>
-            </md-card>
+    <div ng-controller='todoCtrl'>
+        <div layout="row" layout-xs="column">
+            <!-- Left side cards -->
+            <div layout="column" class="leftSideCard">
+                <!-- new TODO card -->
+                <md-card>
+                    <md-card-content>
+                        <!--ng-submit will allow users to hit the return key to enter-->
+                        <form ng-submit="addTodo()">
+                            <md-input-container>
+                                <label>New Todo:</label>
+                                <input type="text" ng-model="newTodo" required>
+                            </md-input-container>
+                            <md-button class="md-raised md-primary" type="submit">Add</md-button>
+                        </form>
+                    </md-card-content>
+                </md-card>
 
-            <md-card>
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">Unassigned TODOs list</span>
-                        <span class="md-subhead">organize this list when you have time</span>
-                    </md-card-title-text>
-                </md-card-title>
-            </md-card>
+                <!-- unassigned TODO card list -->
+                <md-card>
+                    <md-card-content>
+                        <md-list>
+                            <md-subheader>Need to do {{getIncompleteTodos('0').length}}:</md-subheader>
+                            <md-list-item ng-repeat="todo in getIncompleteTodos('0')">
+                                <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
+                                <span>{{todo.text}}</span>
+                            </md-list-item>
+                        </md-list>
+                    </md-card-content>
+                </md-card>
 
-            <md-card>
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">Complete TODOs list</span>
-                        <span class="md-subhead">Look at all the tasks you completed!</span>
-                    </md-card-title-text>
-                </md-card-title>
-            </md-card>
-        </div>
+                <!-- completed TODO card list -->
+                <md-card>
+                    <md-card-content>
+                        <md-list>
+                            <md-subheader>Completed {{getCompleteTodos().length}} todos:</md-subheader>
+                            <md-list-item ng-repeat="todo in getCompleteTodos()">
+                                <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
+                                <span>{{todo.text}}</span>
+                            </md-list-item>
+                        </md-list>
+                    </md-card-content>
+                </md-card>
 
-        <!-- Right side grid-->
-        <!-- TODO, fix this grid so it is more responsive, this is a great start though-->
-        <div style="width:800px;height:800px;">
-            <div style="width:75%;height:75%;">
-                <md-grid-list class="gridListdemoBasicUsage" md-cols="2" md-row-height="1:1">
-                    <md-grid-tile class="green">
-                        <md-grid-tile-footer>
-                            <h3>important : urgent</h3>
-                        </md-grid-tile-footer>
-                    </md-grid-tile>
-                    <md-grid-tile class="yellow">
-                        <md-grid-tile-footer>
-                            <h3>important : not urgent</h3>
-                        </md-grid-tile-footer>
-                    </md-grid-tile>
-                    <md-grid-tile class="blue">
-                        <md-grid-tile-footer>
-                            <h3>not important : urgent</h3>
-                        </md-grid-tile-footer>
-                    </md-grid-tile>
-                    <md-grid-tile class="purple">
-                        <md-grid-tile-footer>
-                            <h3>not important : not urgent</h3>
-                        </md-grid-tile-footer>
-                    </md-grid-tile>
-                </md-grid-list>
+            </div>
+
+            <!-- Right side grid-->
+            <!-- TODO, fix this grid so it is more responsive, this is a great start though-->
+            <div style="width:800px;height:800px;">
+                <div style="width:75%;height:75%;">
+                    <md-grid-list class="gridListdemoBasicUsage" md-cols="2" md-row-height="1:1">
+                        <md-grid-tile class="green">
+                            <md-grid-tile-footer>
+                                <h3>important : urgent</h3>
+                            </md-grid-tile-footer>
+                        </md-grid-tile>
+                        <md-grid-tile class="yellow">
+                            <md-grid-tile-footer>
+                                <h3>important : not urgent</h3>
+                            </md-grid-tile-footer>
+                        </md-grid-tile>
+                        <md-grid-tile class="blue">
+                            <md-grid-tile-footer>
+                                <h3>not important : urgent</h3>
+                            </md-grid-tile-footer>
+                        </md-grid-tile>
+                        <md-grid-tile class="purple">
+                            <md-grid-tile-footer>
+                                <h3>not important : not urgent</h3>
+                            </md-grid-tile-footer>
+                        </md-grid-tile>
+                    </md-grid-list>
+                </div>
             </div>
         </div>
 
