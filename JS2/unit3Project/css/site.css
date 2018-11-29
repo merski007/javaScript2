@@ -11,6 +11,12 @@ background: red;
 border: 1px solid black;
 }
 
+/* left hand side css */
+.leftSideCard md-card{
+  width: 400px;
+}
+
+/* grid css */
 .gridListdemoBasicUsage md-grid-list {
   margin: 8px; }
 
