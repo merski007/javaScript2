@@ -15,6 +15,10 @@ border: 1px solid black;
 .leftSideCard md-card{
   width: 400px;
 }
+.todoList{
+  height:200px; 
+  overflow-y: scroll;
+}
 
 /* grid css */
 .gridListdemoBasicUsage md-grid-list {
