@@ -12,6 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
 
     <!-- Angular Material Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
@@ -85,9 +86,8 @@
 
         </md-sidenav>
         <!-- Right side nav for login: END -->
-
-
     </div>
+
     <!--
     <div ng-controller='authCtrl'>
         <h3>Login</h3>
@@ -104,6 +104,8 @@
         </div>
     </div>
     -->
+
+    <!--
     <div ng-controller='todoCtrl'>
         <h3>My Todos:</h3>
         <label>New todo: <input type='text' ng-model='newTodo'></label>
@@ -168,6 +170,83 @@
         <hr>
         <button type='submit' ng-click='clearCompleted()'>Clear completed</button>
     </div>
+    -->
+
+    <!-- Page grid -->
+    <div layout="row" layout-xs="column">
+        <!-- Left side cards -->
+        <div layout="column">
+            <!--
+            <div class="card" flex>New TODO Area</div>
+            <div class="card" flex>Unassigned TODOs list</div>
+            <div class="card" flex>Complete TODOs list</div>
+            -->
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">New TODO</span>
+                        <span class="md-subhead">create a TODO here</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-lg card-media"></div>
+                    </md-card-title-media>
+                </md-card-title>
+            </md-card>
+
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Unassigned TODOs list</span>
+                        <span class="md-subhead">organize this list when you have time</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-lg card-media"></div>
+                    </md-card-title-media>
+                </md-card-title>
+            </md-card>
+
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Complete TODOs list</span>
+                        <span class="md-subhead">Look at all the tasks you completed!</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-lg card-media"></div>
+                    </md-card-title-media>
+                </md-card-title>
+            </md-card>
+        </div>
+
+        <!-- Right side grid-->
+        <!-- TODO, fix this grid so it is more responsive, this is a great start though-->
+        <div style="width:800px;height:800px;">
+            <div style="width:75%;height:75%;">
+                <md-grid-list class="gridListdemoBasicUsage" md-cols="2" md-row-height="1:1">
+                    <md-grid-tile class="green">
+                        <md-grid-tile-footer>
+                            <h3>important : urgent</h3>
+                        </md-grid-tile-footer>
+                    </md-grid-tile>
+                    <md-grid-tile class="yellow">
+                        <md-grid-tile-footer>
+                            <h3>important : not urgent</h3>
+                        </md-grid-tile-footer>
+                    </md-grid-tile>
+                    <md-grid-tile class="blue">
+                        <md-grid-tile-footer>
+                            <h3>not important : urgent</h3>
+                        </md-grid-tile-footer>
+                    </md-grid-tile>
+                    <md-grid-tile class="purple">
+                        <md-grid-tile-footer>
+                            <h3>not important : not urgent</h3>
+                        </md-grid-tile-footer>
+                    </md-grid-tile>
+                </md-grid-list>
+            </div>
+        </div>
+
 </body>
 
 </html>
