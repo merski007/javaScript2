@@ -53,10 +53,8 @@
         <md-sidenav class='md-sidenav-right md-whiteframe-4dp' md-component-id='right'>
 
             <md-toolbar class='md-theme-light'>
-                <div ng-controller='authCtrl'>
-                    <h1 class='md-toolbar-tools'>Sign In
-                    </h1>
-                </div>
+                <h1 class='md-toolbar-tools'>Sign In
+                </h1>
             </md-toolbar>
             <md-content layout-padding>
                 <form name='userLogin'>
@@ -172,118 +170,136 @@
     </div>
     -->
 
-    <!-- Page grid -->
-    <div ng-controller='todoCtrl'>
-        <div layout="row" layout-xs="column">
-            <!-- Left side cards -->
-            <div layout="column" class="leftSideCard">
-                <!-- new TODO card -->
-                <md-card>
-                    <md-card-content>
-                        <!--ng-submit will allow users to hit the return key to enter-->
-                        <form ng-submit="addTodo()">
-                            <md-input-container>
-                                <label>New Todo:</label>
-                                <input type="text" ng-model="newTodo" required>
-                            </md-input-container>
-                            <md-button class="md-raised md-primary" type="submit">Add</md-button>
-                        </form>
-                    </md-card-content>
-                </md-card>
 
-                <!-- unassigned TODO card list -->
-                <md-card>
-                    <md-card-content>
-                        <md-list class="todoList">
-                            <md-subheader>Need to do {{getIncompleteTodos('0').length}}:</md-subheader>
-                            <md-list-item ng-repeat="todo in getIncompleteTodos('0')">
-                                <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
-                                <span>{{todo.text}}</span>
-                            </md-list-item>
-                        </md-list>
-                    </md-card-content>
-                </md-card>
+    <div class='pageBody' ng-controller='todoCtrl'>
+        <!-- Page view preLogin-->
+        <div ng-hide="authUser" style='width:100%;height:100%;'>
+            <img class='bg' src='/css/stickyNote.jpg'>
+            <h1 class='headline'>
+                TaskMaster lets you work more<br>collaboratively and get more done.
+            </h1>
+            <h3 class='subheadline'>
+                TaskMaster boards, lists, and cards enable you to organize and prioritize<br>your projects in a fun, flexible and rewarding way.
+            </h3>
+            <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                <md-button class="md-raised md-primary" ng-controller="authCtrl" ng-click="toggleRight()">Sign in to get started</md-button>
+            </section>
+        </div>
 
-                <!-- completed TODO card list -->
-                <md-card>
-                    <md-card-content>
-                        <md-list class="todoList">
-                            <md-subheader>Completed {{getCompleteTodos().length}} todos:</md-subheader>
-                            <md-list-item ng-repeat="todo in getCompleteTodos()">
-                                <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
-                                <span>{{todo.text}}</span>
-                            </md-list-item>
-                        </md-list>
-                    </md-card-content>
-                </md-card>
+        <!-- Page grid after login -->
+        <div ng-show="authUser">
+            <div layout="row" layout-xs="column">
+                <!-- Left side cards -->
+                <div layout="column" class="leftSideCard">
+                    <!-- new TODO card -->
+                    <md-card>
+                        <md-card-content>
+                            <!--ng-submit will allow users to hit the return key to enter-->
+                            <form ng-submit="addTodo()">
+                                <md-input-container>
+                                    <label>New Todo:</label>
+                                    <input type="text" ng-model="newTodo" required>
+                                </md-input-container>
+                                <md-button class="md-raised md-primary" type="submit">Add</md-button>
+                            </form>
+                        </md-card-content>
+                    </md-card>
 
-            </div>
+                    <!-- unassigned TODO card list -->
+                    <md-card>
+                        <md-card-content>
+                            <md-list class="todoList">
+                                <md-subheader>Need to do {{getIncompleteTodos('0').length}}:</md-subheader>
+                                <md-list-item ng-repeat="todo in getIncompleteTodos('0')">
+                                    <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
+                                    <span>{{todo.text}}</span>
+                                </md-list-item>
+                            </md-list>
+                        </md-card-content>
+                    </md-card>
 
-            <!-- Right side grid-->
-            <!-- TODO, fix this grid so it is more responsive, this is a great start though-->
-            <div style="width:800px;height:800px;">
-                <div style="width:75%;height:75%;">
-                    <md-grid-list class="gridListdemoBasicUsage" md-cols="2" md-row-height="1:1">
-                        <md-grid-tile class="green" style="overflow-y: scroll;">
-                            <!-- group 1 TODO card list -->
-                            <div style="height:100%;width:100%;">
-                                <md-list>
-                                    <md-list-item ng-repeat="todo in getIncompleteTodos('1')">
-                                        <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
-                                        <span>{{todo.text}}</span>
-                                    </md-list-item>
-                                </md-list>
-                            </div>
-                            <md-grid-tile-footer>
-                                <h3>important : urgent</h3>
-                            </md-grid-tile-footer>
-                        </md-grid-tile>
-                        <md-grid-tile class="yellow" style="overflow-y: scroll;">
-                            <!-- group 2 TODO card list -->
-                            <div style="height:100%;width:100%;">
-                                <md-list>
-                                    <md-list-item ng-repeat="todo in getIncompleteTodos('2')">
-                                        <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
-                                        <span>{{todo.text}}</span>
-                                    </md-list-item>
-                                </md-list>
-                            </div>
-                            <md-grid-tile-footer>
-                                <h3>important : not urgent</h3>
-                            </md-grid-tile-footer>
-                        </md-grid-tile>
-                        <md-grid-tile class="blue" style="overflow-y: scroll;">
-                            <!-- group 3 TODO card list -->
-                            <div style="height:100%;width:100%;">
-                                <md-list>
-                                    <md-list-item ng-repeat="todo in getIncompleteTodos('3')">
-                                        <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
-                                        <span>{{todo.text}}</span>
-                                    </md-list-item>
-                                </md-list>
-                            </div>
-                            <md-grid-tile-footer>
-                                <h3>not important : urgent</h3>
-                            </md-grid-tile-footer>
-                        </md-grid-tile>
-                        <md-grid-tile class="purple" style="overflow-y: scroll;">
-                            <!-- group 4 TODO card list -->
-                            <div style="height:100%;width:100%;">
-                                <md-list>
-                                    <md-list-item ng-repeat="todo in getIncompleteTodos('4')">
-                                        <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
-                                        <span>{{todo.text}}</span>
-                                    </md-list-item>
-                                </md-list>
-                            </div>
-                            <md-grid-tile-footer>
-                                <h3>not important : not urgent</h3>
-                            </md-grid-tile-footer>
-                        </md-grid-tile>
-                    </md-grid-list>
+                    <!-- completed TODO card list -->
+                    <md-card>
+                        <md-card-content>
+                            <md-list class="todoList">
+                                <md-subheader>Completed {{getCompleteTodos().length}} todos:</md-subheader>
+                                <md-list-item ng-repeat="todo in getCompleteTodos()">
+                                    <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
+                                    <span>{{todo.text}}</span>
+                                </md-list-item>
+                            </md-list>
+                        </md-card-content>
+                    </md-card>
+
+                </div>
+
+                <!-- Right side grid-->
+                <!-- TODO, fix this grid so it is more responsive, this is a great start though-->
+                <div style="width:800px;height:800px;">
+                    <div style="width:75%;height:75%;">
+                        <md-grid-list class="gridListdemoBasicUsage" md-cols="2" md-row-height="1:1">
+                            <md-grid-tile class="green" style="overflow-y: scroll;">
+                                <!-- group 1 TODO card list -->
+                                <div style="height:100%;width:100%;">
+                                    <md-list>
+                                        <md-list-item ng-repeat="todo in getIncompleteTodos('1')">
+                                            <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
+                                            <span>{{todo.text}}</span>
+                                        </md-list-item>
+                                    </md-list>
+                                </div>
+                                <md-grid-tile-footer>
+                                    <h3>important : urgent</h3>
+                                </md-grid-tile-footer>
+                            </md-grid-tile>
+                            <md-grid-tile class="yellow" style="overflow-y: scroll;">
+                                <!-- group 2 TODO card list -->
+                                <div style="height:100%;width:100%;">
+                                    <md-list>
+                                        <md-list-item ng-repeat="todo in getIncompleteTodos('2')">
+                                            <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
+                                            <span>{{todo.text}}</span>
+                                        </md-list-item>
+                                    </md-list>
+                                </div>
+                                <md-grid-tile-footer>
+                                    <h3>important : not urgent</h3>
+                                </md-grid-tile-footer>
+                            </md-grid-tile>
+                            <md-grid-tile class="blue" style="overflow-y: scroll;">
+                                <!-- group 3 TODO card list -->
+                                <div style="height:100%;width:100%;">
+                                    <md-list>
+                                        <md-list-item ng-repeat="todo in getIncompleteTodos('3')">
+                                            <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
+                                            <span>{{todo.text}}</span>
+                                        </md-list-item>
+                                    </md-list>
+                                </div>
+                                <md-grid-tile-footer>
+                                    <h3>not important : urgent</h3>
+                                </md-grid-tile-footer>
+                            </md-grid-tile>
+                            <md-grid-tile class="purple" style="overflow-y: scroll;">
+                                <!-- group 4 TODO card list -->
+                                <div style="height:100%;width:100%;">
+                                    <md-list>
+                                        <md-list-item ng-repeat="todo in getIncompleteTodos('4')">
+                                            <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
+                                            <span>{{todo.text}}</span>
+                                        </md-list-item>
+                                    </md-list>
+                                </div>
+                                <md-grid-tile-footer>
+                                    <h3>not important : not urgent</h3>
+                                </md-grid-tile-footer>
+                            </md-grid-tile>
+                        </md-grid-list>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
 </body>
 
