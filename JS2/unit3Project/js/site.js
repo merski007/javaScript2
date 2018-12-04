@@ -103,6 +103,8 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
         });
     };
 
+    $scope.status = [{ display: 'Important:Urgent', value: 1 }, { display: 'Important:Not Urgent', value: 2 }, { display: 'Not Important:Urgent', value: 3 }, { display: 'Not Important:Not Urgent', value: 4 }];
+
 });
 
 

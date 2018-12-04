@@ -200,6 +200,27 @@
                                     <label>New Todo:</label>
                                     <input type="text" ng-model="newTodo" required>
                                 </md-input-container>
+                                <br>
+                                <b>Organize: </b>
+                                <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1" class="grid1">
+                                </md-checkbox>
+                                <md-checkbox ng-model="data.cb2" aria-label="Checkbox 2" class="grid2">
+                                </md-checkbox>
+                                <md-checkbox ng-model="data.cb3" aria-label="Checkbox 3" class="grid3">
+                                </md-checkbox>
+                                <md-checkbox ng-model="data.cb4" aria-label="Checkbox 4" class="grid4">
+                                </md-checkbox>
+                                <!--
+                                <md-input-container>
+                                    <label>Status</label>
+                                    <md-select ng-model="status">
+                                        <md-option ng-repeat="x in status">
+                                            {{x.display}}
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
+                                -->
+                                <br>
                                 <md-button class="md-raised md-primary" type="submit">Add</md-button>
                             </form>
                         </md-card-content>
@@ -238,60 +259,60 @@
                 <div style="width:800px;height:800px;">
                     <div style="width:75%;height:75%;">
                         <md-grid-list class="gridListdemoBasicUsage" md-cols="2" md-row-height="1:1">
-                            <md-grid-tile class="green" style="overflow-y: scroll;">
+                            <md-grid-tile class="grid1" style="overflow-y: scroll;">
                                 <!-- group 1 TODO card list -->
                                 <div style="height:100%;width:100%;">
                                     <md-list>
                                         <md-list-item ng-repeat="todo in getIncompleteTodos('1')">
-                                            <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
+                                            <md-checkbox ng-model="todo.done" aria-label="checkbox" class="grid1"></md-checkbox>
                                             <span>{{todo.text}}</span>
                                         </md-list-item>
                                     </md-list>
                                 </div>
                                 <md-grid-tile-footer>
-                                    <h3>important : urgent</h3>
+                                    <h3>The roof is on FIRE!!!</h3>
                                 </md-grid-tile-footer>
                             </md-grid-tile>
-                            <md-grid-tile class="yellow" style="overflow-y: scroll;">
+                            <md-grid-tile class="grid2">
                                 <!-- group 2 TODO card list -->
-                                <div style="height:100%;width:100%;">
+                                <div style="height:100%;width:100%;overflow-y: scroll;">
                                     <md-list>
                                         <md-list-item ng-repeat="todo in getIncompleteTodos('2')">
-                                            <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
+                                            <md-checkbox ng-model="todo.done" aria-label="checkbox" class="grid2"></md-checkbox>
                                             <span>{{todo.text}}</span>
                                         </md-list-item>
                                     </md-list>
                                 </div>
                                 <md-grid-tile-footer>
-                                    <h3>important : not urgent</h3>
+                                    <h3>Start exercising (next year)</h3>
                                 </md-grid-tile-footer>
                             </md-grid-tile>
-                            <md-grid-tile class="blue" style="overflow-y: scroll;">
+                            <md-grid-tile class="grid3" style="overflow-y: scroll;">
                                 <!-- group 3 TODO card list -->
                                 <div style="height:100%;width:100%;">
                                     <md-list>
                                         <md-list-item ng-repeat="todo in getIncompleteTodos('3')">
-                                            <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
+                                            <md-checkbox ng-model="todo.done" aria-label="checkbox" class="grid3"></md-checkbox>
                                             <span>{{todo.text}}</span>
                                         </md-list-item>
                                     </md-list>
                                 </div>
                                 <md-grid-tile-footer>
-                                    <h3>not important : urgent</h3>
+                                    <h3>Cut the grass, rain is coming</h3>
                                 </md-grid-tile-footer>
                             </md-grid-tile>
-                            <md-grid-tile class="purple" style="overflow-y: scroll;">
+                            <md-grid-tile class="grid4" style="overflow-y: scroll;">
                                 <!-- group 4 TODO card list -->
                                 <div style="height:100%;width:100%;">
                                     <md-list>
                                         <md-list-item ng-repeat="todo in getIncompleteTodos('4')">
-                                            <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
+                                            <md-checkbox ng-model="todo.done" aria-label="checkbox" class="grid4"></md-checkbox>
                                             <span>{{todo.text}}</span>
                                         </md-list-item>
                                     </md-list>
                                 </div>
                                 <md-grid-tile-footer>
-                                    <h3>not important : not urgent</h3>
+                                    <h3>Hold my beer, I got this...</h3>
                                 </md-grid-tile-footer>
                             </md-grid-tile>
                         </md-grid-list>

@@ -62,14 +62,27 @@ img.bg {
 .gridListdemoBasicUsage md-grid-list {
   margin: 8px; }
 
-.gridListdemoBasicUsage .green {
-  background: #b9f6ca; }
+.gridListdemoBasicUsage .grid1, md-checkbox.grid1 .md-icon {
+  background: #c0392b; 
+  border-color: #ffffff;
+  color:#ffffff;
+}
+
   
-.gridListdemoBasicUsage .yellow {
-  background: #ffff8d; }
+.gridListdemoBasicUsage .grid2, md-checkbox.grid2 .md-icon {
+  background: #2980b9;
+border-color: #ffffff;
+  color:#ffffff;
+ }
 
-.gridListdemoBasicUsage .blue {
-  background: #84ffff; }
+.gridListdemoBasicUsage .grid3, md-checkbox.grid3 .md-icon {
+  background: #8e44ad;
+border-color: #ffffff;
+  color:#ffffff;
+ }
 
-.gridListdemoBasicUsage .purple {
-  background: #b388ff; }
+.gridListdemoBasicUsage .grid4, md-checkbox.grid4 .md-icon {
+  background: #2c3e50; 
+  border-color: #ffffff;
+  color:#ffffff;
+}
