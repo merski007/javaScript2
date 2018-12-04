@@ -201,7 +201,7 @@
                                     <input type="text" ng-model="newTodo" required>
                                 </md-input-container>
                                 <br>
-                                <b>Organize: </b>
+                                <b>Sort: </b>
                                 <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1" class="grid1">
                                 </md-checkbox>
                                 <md-checkbox ng-model="data.cb2" aria-label="Checkbox 2" class="grid2">
@@ -231,10 +231,11 @@
                         <md-card-content>
                             <md-list class="todoList">
                                 <md-subheader>Need to do {{getIncompleteTodos('0').length}}:</md-subheader>
-                                <md-list-item ng-repeat="todo in getIncompleteTodos('0')">
+                                <!--<md-list-item ng-repeat="todo in getIncompleteTodos('0')">
                                     <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
                                     <span>{{todo.text}}</span>
-                                </md-list-item>
+                                </md-list-item>-->
+                                <todo ng-repeat="todo in getIncompleteTodos('0')"></todo>
                             </md-list>
                         </md-card-content>
                     </md-card>
@@ -244,10 +245,11 @@
                         <md-card-content>
                             <md-list class="todoList">
                                 <md-subheader>Completed {{getCompleteTodos().length}} todos:</md-subheader>
-                                <md-list-item ng-repeat="todo in getCompleteTodos()">
+                                <!--<md-list-item ng-repeat="todo in getCompleteTodos()">
                                     <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
                                     <span>{{todo.text}}</span>
-                                </md-list-item>
+                                </md-list-item>-->
+                                <todo ng-repeat="todo in getCompleteTodos('0')"></todo>
                             </md-list>
                         </md-card-content>
                     </md-card>
@@ -263,10 +265,11 @@
                                 <!-- group 1 TODO card list -->
                                 <div style="height:100%;width:100%;">
                                     <md-list>
-                                        <md-list-item ng-repeat="todo in getIncompleteTodos('1')">
+                                        <!--<md-list-item ng-repeat="todo in getIncompleteTodos('1')">
                                             <md-checkbox ng-model="todo.done" aria-label="checkbox" class="grid1"></md-checkbox>
                                             <span>{{todo.text}}</span>
-                                        </md-list-item>
+                                        </md-list-item>-->
+                                        <todo ng-repeat="todo in getIncompleteTodos('1')"></todo>
                                     </md-list>
                                 </div>
                                 <md-grid-tile-footer>
@@ -277,10 +280,11 @@
                                 <!-- group 2 TODO card list -->
                                 <div style="height:100%;width:100%;overflow-y: scroll;">
                                     <md-list>
-                                        <md-list-item ng-repeat="todo in getIncompleteTodos('2')">
+                                        <!--<md-list-item ng-repeat="todo in getIncompleteTodos('2')">
                                             <md-checkbox ng-model="todo.done" aria-label="checkbox" class="grid2"></md-checkbox>
                                             <span>{{todo.text}}</span>
-                                        </md-list-item>
+                                        </md-list-item>-->
+                                        <todo ng-repeat="todo in getIncompleteTodos('2')"></todo>
                                     </md-list>
                                 </div>
                                 <md-grid-tile-footer>
@@ -291,10 +295,11 @@
                                 <!-- group 3 TODO card list -->
                                 <div style="height:100%;width:100%;">
                                     <md-list>
-                                        <md-list-item ng-repeat="todo in getIncompleteTodos('3')">
+                                        <!--<md-list-item ng-repeat="todo in getIncompleteTodos('3')">
                                             <md-checkbox ng-model="todo.done" aria-label="checkbox" class="grid3"></md-checkbox>
                                             <span>{{todo.text}}</span>
-                                        </md-list-item>
+                                        </md-list-item>-->
+                                        <todo ng-repeat="todo in getIncompleteTodos('3')"></todo>
                                     </md-list>
                                 </div>
                                 <md-grid-tile-footer>
@@ -305,10 +310,11 @@
                                 <!-- group 4 TODO card list -->
                                 <div style="height:100%;width:100%;">
                                     <md-list>
-                                        <md-list-item ng-repeat="todo in getIncompleteTodos('4')">
+                                        <!--<md-list-item ng-repeat="todo in getIncompleteTodos('4')">
                                             <md-checkbox ng-model="todo.done" aria-label="checkbox" class="grid4"></md-checkbox>
                                             <span>{{todo.text}}</span>
-                                        </md-list-item>
+                                        </md-list-item>-->
+                                        <todo ng-repeat="todo in getIncompleteTodos('4')"></todo>
                                     </md-list>
                                 </div>
                                 <md-grid-tile-footer>

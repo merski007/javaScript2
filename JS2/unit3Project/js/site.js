@@ -91,9 +91,15 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
         $scope.group = '0';
     }
 
-    $scope.updateTodo = function (todo) {
+    $scope.editTodo = function (todo) {
+        // edit the todo object
+        // objects are passed by reference
+        // string/number/boolean are passed by value
+        //todo.text += " EDITED";
+        todo.edit = !todo.edit;
+
         $scope.todos.$save(todo);
-    };
+    }
 
     $scope.clearCompleted = function () {
         //$scope.todos = $scope.getIncompleteTodos();
@@ -238,4 +244,16 @@ app.initFirebase = function () {
 app.config(function ($mdThemingProvider) {
     $mdThemingProvider.theme('default')
         .primaryPalette('orange');
+});
+
+
+// custom directive
+app.directive('todo', function () {
+    return {
+        templateUrl: 'templates/todo.html'
+        // ,controller: ... could specify a custom controller
+        // $scope
+        // etc...
+        // restrict: 'EA'
+    };
 });

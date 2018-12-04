@@ -1,0 +1,15 @@
+<md-list-item ng-hide="todo.edit">
+    <md-checkbox ng-model="todo.done" aria-label="Mark {{todo.text}} complete"></md-checkbox>
+    <span>{{todo.text}}</span>
+    <md-icon class="md-secondary" ng-click="editTodo(todo)" aria-label="Edit">edit</md-icon>
+</md-list-item>
+
+<md-list-item ng-show="todo.edit" style="margin-left:50px;">
+    <form ng-submit="editTodo(todo)">
+        <md-input-container>
+            <label>Todo:</label>
+            <input ng-model="todo.text" ng-blur="editTodo(todo)">
+        </md-input-container>
+        <md-icon class="md-secondary" ng-click="editTodo(todo)" aria-label="Save">save</md-icon>
+    </form>
+</md-list-item>
