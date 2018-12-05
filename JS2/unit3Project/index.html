@@ -202,13 +202,13 @@
                                 </md-input-container>
                                 <br>
                                 <b>Sort: </b>
-                                <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1" class="grid1">
+                                <md-checkbox ng-model="cb1" ng-init="cb1=false" aria-label="Checkbox 1" class="grid1">
                                 </md-checkbox>
-                                <md-checkbox ng-model="data.cb2" aria-label="Checkbox 2" class="grid2">
+                                <md-checkbox ng-model="cb2" ng-init="cb2=false" aria-label="Checkbox 2" class="grid2">
                                 </md-checkbox>
-                                <md-checkbox ng-model="data.cb3" aria-label="Checkbox 3" class="grid3">
+                                <md-checkbox ng-model="cb3" ng-init="cb3=false" aria-label="Checkbox 3" class="grid3">
                                 </md-checkbox>
-                                <md-checkbox ng-model="data.cb4" aria-label="Checkbox 4" class="grid4">
+                                <md-checkbox ng-model="cb4" ng-init="cb4=false" aria-label="Checkbox 4" class="grid4">
                                 </md-checkbox>
                                 <!--
                                 <md-input-container>
@@ -230,7 +230,7 @@
                     <md-card>
                         <md-card-content>
                             <md-list class="todoList">
-                                <md-subheader>Need to do {{getIncompleteTodos('0').length}}:</md-subheader>
+                                <md-subheader>Need to sort {{getIncompleteTodos('0').length}}:</md-subheader>
                                 <!--<md-list-item ng-repeat="todo in getIncompleteTodos('0')">
                                     <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
                                     <span>{{todo.text}}</span>

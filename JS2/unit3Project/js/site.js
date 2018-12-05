@@ -85,10 +85,13 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
         //$scope.todos.push({ text: $scope.newTodo, done: false });
         // add new todo to database
         //$scope.todos.$add({ text: $scope.newTodo, duedate: $scope.newDate, done: false });
-        $scope.todos.$add({ text: $scope.newTodo, group: $scope.group, done: false });
+        $scope.todos.$add({ text: $scope.newTodo, cb1: $scope.cb1, cb2: $scope.cb2, cb3: $scope.cb3, cb4: $scope.cb4, done: false });
         // update model to clear todo fields
         $scope.newTodo = '';
-        $scope.group = '0';
+        $scope.cb1 = false;
+        $scope.cb2 = false;
+        $scope.cb3 = false;
+        $scope.cb4 = false;
     }
 
     $scope.editTodo = function (todo) {
@@ -108,8 +111,6 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
             $scope.todos.$remove(todo);
         });
     };
-
-    $scope.status = [{ display: 'Important:Urgent', value: 1 }, { display: 'Important:Not Urgent', value: 2 }, { display: 'Not Important:Urgent', value: 3 }, { display: 'Not Important:Not Urgent', value: 4 }];
 
 });
 
