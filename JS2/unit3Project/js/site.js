@@ -67,9 +67,37 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
     */
 
     // custom filter to get incomplete todos
-    $scope.getIncompleteTodos = function (groupNumber) {
+    $scope.getIncompleteTodos = function () {
         return $scope.todos.filter(function (todo) {
-            return !todo.done && todo.group == groupNumber;
+            return !todo.done && !todo.cb1 && !todo.cb2 && !todo.cb3 && !todo.cb4;
+        });
+    };
+
+    // custom filter to get incomplete todos
+    $scope.getIncompleteCb1Todos = function () {
+        return $scope.todos.filter(function (todo) {
+            return !todo.done && todo.cb1;
+        });
+    };
+
+    // custom filter to get incomplete todos
+    $scope.getIncompleteCb2Todos = function () {
+        return $scope.todos.filter(function (todo) {
+            return !todo.done && todo.cb2;
+        });
+    };
+
+    // custom filter to get incomplete todos
+    $scope.getIncompleteCb3Todos = function () {
+        return $scope.todos.filter(function (todo) {
+            return !todo.done && todo.cb3;
+        });
+    };
+
+    // custom filter to get incomplete todos
+    $scope.getIncompleteCb4Todos = function () {
+        return $scope.todos.filter(function (todo) {
+            return !todo.done && todo.cb4;
         });
     };
 

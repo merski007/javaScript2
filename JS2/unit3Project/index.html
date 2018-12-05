@@ -230,12 +230,12 @@
                     <md-card>
                         <md-card-content>
                             <md-list class="todoList">
-                                <md-subheader>Need to sort {{getIncompleteTodos('0').length}}:</md-subheader>
+                                <md-subheader>Need to sort {{getIncompleteTodos().length}}:</md-subheader>
                                 <!--<md-list-item ng-repeat="todo in getIncompleteTodos('0')">
                                     <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
                                     <span>{{todo.text}}</span>
                                 </md-list-item>-->
-                                <todo ng-repeat="todo in getIncompleteTodos('0')"></todo>
+                                <todo ng-repeat="todo in getIncompleteTodos()"></todo>
                             </md-list>
                         </md-card-content>
                     </md-card>
@@ -269,7 +269,7 @@
                                             <md-checkbox ng-model="todo.done" aria-label="checkbox" class="grid1"></md-checkbox>
                                             <span>{{todo.text}}</span>
                                         </md-list-item>-->
-                                        <todo ng-repeat="todo in getIncompleteTodos('1')"></todo>
+                                        <todo ng-repeat="todo in getIncompleteCb1Todos()"></todo>
                                     </md-list>
                                 </div>
                                 <md-grid-tile-footer>
@@ -284,7 +284,7 @@
                                             <md-checkbox ng-model="todo.done" aria-label="checkbox" class="grid2"></md-checkbox>
                                             <span>{{todo.text}}</span>
                                         </md-list-item>-->
-                                        <todo ng-repeat="todo in getIncompleteTodos('2')"></todo>
+                                        <todo ng-repeat="todo in getIncompleteCb2Todos()"></todo>
                                     </md-list>
                                 </div>
                                 <md-grid-tile-footer>
@@ -299,7 +299,7 @@
                                             <md-checkbox ng-model="todo.done" aria-label="checkbox" class="grid3"></md-checkbox>
                                             <span>{{todo.text}}</span>
                                         </md-list-item>-->
-                                        <todo ng-repeat="todo in getIncompleteTodos('3')"></todo>
+                                        <todo ng-repeat="todo in getIncompleteCb3Todos()"></todo>
                                     </md-list>
                                 </div>
                                 <md-grid-tile-footer>
@@ -314,7 +314,7 @@
                                             <md-checkbox ng-model="todo.done" aria-label="checkbox" class="grid4"></md-checkbox>
                                             <span>{{todo.text}}</span>
                                         </md-list-item>-->
-                                        <todo ng-repeat="todo in getIncompleteTodos('4')"></todo>
+                                        <todo ng-repeat="todo in getIncompleteCb4Todos()"></todo>
                                     </md-list>
                                 </div>
                                 <md-grid-tile-footer>
