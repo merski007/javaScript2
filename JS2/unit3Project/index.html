@@ -202,14 +202,13 @@
                                 </md-input-container>
                                 <br>
                                 <b>Sort: </b>
-                                <md-checkbox ng-model="cb1" ng-init="cb1=false" aria-label="Checkbox 1" class="grid1">
-                                </md-checkbox>
-                                <md-checkbox ng-model="cb2" ng-init="cb2=false" aria-label="Checkbox 2" class="grid2">
-                                </md-checkbox>
-                                <md-checkbox ng-model="cb3" ng-init="cb3=false" aria-label="Checkbox 3" class="grid3">
-                                </md-checkbox>
-                                <md-checkbox ng-model="cb4" ng-init="cb4=false" aria-label="Checkbox 4" class="grid4">
-                                </md-checkbox>
+                                <sort></sort>
+                                <!--
+                                <md-checkbox ng-model="cb1" ng-init="cb1=false" aria-label="Checkbox 1" class="grid1" ng-click="toggleBoxes()"></md-checkbox>
+                                <md-checkbox ng-model="cb2" ng-init="cb2=false" aria-label="Checkbox 2" class="grid2" ng-click="toggleBoxes()"></md-checkbox>
+                                <md-checkbox ng-model="cb3" ng-init="cb3=false" aria-label="Checkbox 3" class="grid3" ng-click="toggleBoxes()"></md-checkbox>
+                                <md-checkbox ng-model="cb4" ng-init="cb4=false" aria-label="Checkbox 4" class="grid4" ng-click="toggleBoxes()"></md-checkbox>
+-->
                                 <!--
                                 <md-input-container>
                                     <label>Status</label>
@@ -259,12 +258,12 @@
 
                 <!-- Right side grid-->
                 <!-- TODO, fix this grid so it is more responsive, this is a great start though-->
-                <div style="width:800px;height:800px;">
+                <div style="width:1000px;height:800px;">
                     <div style="width:75%;height:75%;">
                         <md-grid-list class="gridListdemoBasicUsage" md-cols="2" md-row-height="1:1">
-                            <md-grid-tile class="grid1" style="overflow-y: scroll;">
+                            <md-grid-tile class="tile1">
                                 <!-- group 1 TODO card list -->
-                                <div style="height:100%;width:100%;">
+                                <div class="tileDiv">
                                     <md-list>
                                         <!--<md-list-item ng-repeat="todo in getIncompleteTodos('1')">
                                             <md-checkbox ng-model="todo.done" aria-label="checkbox" class="grid1"></md-checkbox>
@@ -277,9 +276,9 @@
                                     <h3>The roof is on FIRE!!!</h3>
                                 </md-grid-tile-footer>
                             </md-grid-tile>
-                            <md-grid-tile class="grid2">
+                            <md-grid-tile class="tile2">
                                 <!-- group 2 TODO card list -->
-                                <div style="height:100%;width:100%;overflow-y: scroll;">
+                                <div class="tileDiv">
                                     <md-list>
                                         <!--<md-list-item ng-repeat="todo in getIncompleteTodos('2')">
                                             <md-checkbox ng-model="todo.done" aria-label="checkbox" class="grid2"></md-checkbox>
@@ -292,9 +291,9 @@
                                     <h3>Start exercising (next year)</h3>
                                 </md-grid-tile-footer>
                             </md-grid-tile>
-                            <md-grid-tile class="grid3" style="overflow-y: scroll;">
+                            <md-grid-tile class="tile3">
                                 <!-- group 3 TODO card list -->
-                                <div style="height:100%;width:100%;">
+                                <div class="tileDiv">
                                     <md-list>
                                         <!--<md-list-item ng-repeat="todo in getIncompleteTodos('3')">
                                             <md-checkbox ng-model="todo.done" aria-label="checkbox" class="grid3"></md-checkbox>
@@ -307,9 +306,9 @@
                                     <h3>Cut the grass, rain is coming</h3>
                                 </md-grid-tile-footer>
                             </md-grid-tile>
-                            <md-grid-tile class="grid4" style="overflow-y: scroll;">
+                            <md-grid-tile class="tile4">
                                 <!-- group 4 TODO card list -->
-                                <div style="height:100%;width:100%;">
+                                <div class="tileDiv">
                                     <md-list>
                                         <!--<md-list-item ng-repeat="todo in getIncompleteTodos('4')">
                                             <md-checkbox ng-model="todo.done" aria-label="checkbox" class="grid4"></md-checkbox>

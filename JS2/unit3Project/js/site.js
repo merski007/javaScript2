@@ -107,6 +107,21 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
         $scope.todos = $scope.getIncompleteTodos();
     }
 
+    $scope.toggleBoxes = function () {
+        if (!$scope.cb1) {
+            return $scope.cb2 = false, $scope.cb3 = false, $scope.cb4 = false;
+        }
+        else if (!$scope.cb2) {
+            return $scope.cb1 = false, $scope.cb3 = false, $scope.cb4 = false;
+        }
+        else if (!$scope.cb3) {
+            return $scope.cb1 = false, $scope.cb2 = false, $scope.cb4 = false;
+        }
+        else if (!$scope.cb4) {
+            return $scope.cb1 = false, $scope.cb2 = false, $scope.cb3 = false;
+        }
+    }
+
     // add a new todo
     $scope.addTodo = function () {
         // $scope.newTodo will be the value from the text box
@@ -280,6 +295,17 @@ app.config(function ($mdThemingProvider) {
 app.directive('todo', function () {
     return {
         templateUrl: 'templates/todo.html'
+        // ,controller: ... could specify a custom controller
+        // $scope
+        // etc...
+        // restrict: 'EA'
+    };
+});
+
+// custom directive
+app.directive('sort', function () {
+    return {
+        templateUrl: 'templates/sortBoxes.html'
         // ,controller: ... could specify a custom controller
         // $scope
         // etc...
