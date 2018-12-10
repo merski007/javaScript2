@@ -21,11 +21,8 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
     // used to store user object
     $scope.authUser = null; // authenticated user object	
 
-    // bind a firebase array/collection to our model
-    //$scope.todos = $firebaseArray(app.firebaseRef.child('ng-todos'));
+    // create array var
     $scope.todos = [];
-    // default group selection // 0 = uncategorized
-    $scope.group = '0';
 
     // on login or logout
     $scope.authObj.$onAuthStateChanged(function (firebaseUser) {
@@ -41,14 +38,6 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
             $scope.todos = [];
         }
     });
-    /*
-    // default array for todo list
-    $scope.todos = [
-        { text: 'eat dinner', done: true },
-        { text: 'learn angularjs', done: false },
-        { text: 'sleep', done: false }
-    ];
-    */
 
     // custom filter to get completed todos
     $scope.getCompleteTodos = function () {
@@ -56,15 +45,6 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
             return todo.done;
         });
     };
-
-    // custom filter to get incomplete todos
-    /*
-    $scope.getIncompleteTodos = function () {
-        return $scope.todos.filter(function (todo) {
-            return !todo.done;
-        });
-    };
-    */
 
     // custom filter to get incomplete todos
     $scope.getIncompleteTodos = function () {
@@ -125,10 +105,9 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
     // add a new todo
     $scope.addTodo = function () {
         // $scope.newTodo will be the value from the text box
-        //$scope.todos.push({ text: $scope.newTodo, done: false });
         // add new todo to database
-        //$scope.todos.$add({ text: $scope.newTodo, duedate: $scope.newDate, done: false });
         $scope.todos.$add({ text: $scope.newTodo, cb1: $scope.cb1, cb2: $scope.cb2, cb3: $scope.cb3, cb4: $scope.cb4, done: false });
+
         // update model to clear todo fields
         $scope.newTodo = '';
         $scope.cb1 = false;
@@ -148,7 +127,6 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
     }
 
     $scope.clearCompleted = function () {
-        //$scope.todos = $scope.getIncompleteTodos();
         // loop through completed todos and remove from database
         $scope.getCompleteTodos().forEach(function (todo) {
             $scope.todos.$remove(todo);

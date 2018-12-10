@@ -86,93 +86,10 @@
         <!-- Right side nav for login: END -->
     </div>
 
-    <!--
-    <div ng-controller='authCtrl'>
-        <h3>Login</h3>
-        <label>email: <input type='text' ng-model='userEmail'></label>
-        <label>password: <input type='text' ng-model='userPassword'></label>
-        <br>
-        <button ng-click="createUser()" ng-hide="authUser">Create User</button>
-        <button ng-click="login()" ng-hide="authUser">Login</button>
-        <button ng-click="updateUser()" ng-show="authUser">Update User</button>
-        <button ng-click="logout()" ng-show="authUser">Logout</button>
-        <br>
-        <div ng-show="authUser">
-            Logged in as: {{authUser.email}} <br>
-        </div>
-    </div>
-    -->
-
-    <!--
-    <div ng-controller='todoCtrl'>
-        <h3>My Todos:</h3>
-        <label>New todo: <input type='text' ng-model='newTodo'></label>
-        <label>Group:
-            <select ng-model='group'>
-                <option value="0" ng-selected="selected">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-        </label>
-        <button ng-click='addTodo()'>Add</button>
-        <hr>
-        <p>Uncategorized todos ({{getIncompleteTodos('0').length}}):</p>
-        <ul>
-            <li ng-repeat='todo in getIncompleteTodos("0")'>
-                <input type='checkbox' ng-model='todo.done'>
-                {{todo.text}}
-            </li>
-        </ul>
-        <hr>
-        <p>Group 1 todos ({{getIncompleteTodos('1').length}}):</p>
-        <ul>
-            <li ng-repeat='todo in getIncompleteTodos("1")'>
-                <input type='checkbox' ng-model='todo.done'>
-                {{todo.text}}
-            </li>
-        </ul>
-        <hr>
-        <p>Group 2 todos ({{getIncompleteTodos('2').length}}):</p>
-        <ul>
-            <li ng-repeat='todo in getIncompleteTodos("2")'>
-                <input type='checkbox' ng-model='todo.done'>
-                {{todo.text}}
-            </li>
-        </ul>
-        <hr>
-        <p>Group 3 todos ({{getIncompleteTodos('3').length}}):</p>
-        <ul>
-            <li ng-repeat='todo in getIncompleteTodos("3")'>
-                <input type='checkbox' ng-model='todo.done'>
-                {{todo.text}}
-            </li>
-        </ul>
-        <hr>
-        <p>Group 4 todos ({{getIncompleteTodos('4').length}}):</p>
-        <ul>
-            <li ng-repeat='todo in getIncompleteTodos("4")'>
-                <input type='checkbox' ng-model='todo.done'>
-                {{todo.text}}
-            </li>
-        </ul>
-        <hr>
-        <p>Completed {{getCompleteTodos().length}} todos:</p>
-        <ul>
-            <li ng-repeat='todo in getCompleteTodos()'>
-                <input type='checkbox' ng-model='todo.done'>
-                {{todo.text}}
-            </li>
-        </ul>
-        <hr>
-        <button type='submit' ng-click='clearCompleted()'>Clear completed</button>
-    </div>
-    -->
-
-
+    <!-- Page body: START -->
     <div class='pageBody' ng-controller='todoCtrl'>
-        <!-- Page view preLogin-->
+
+        <!-- Page view preLogin: START -->
         <div ng-hide="authUser" style='width:100%;height:100%;'>
             <img class='bg' src='/css/stickyNote.jpg'>
             <h1 class='headline'>
@@ -185,12 +102,15 @@
                 <md-button class="md-raised md-primary" ng-controller="authCtrl" ng-click="toggleRight()">Sign in to get started</md-button>
             </section>
         </div>
+        <!-- Page view preLogin: END -->
 
-        <!-- Page grid after login -->
+        <!-- Page grid after login: START -->
         <div ng-show="authUser">
             <div layout="row" layout-xs="column">
-                <!-- Left side cards -->
+
+                <!-- Left side cards: START -->
                 <div layout="column" class="leftSideCard">
+
                     <!-- new TODO card -->
                     <md-card>
                         <md-card-content>
@@ -203,22 +123,6 @@
                                 <br>
                                 <b>Sort: </b>
                                 <sort></sort>
-                                <!--
-                                <md-checkbox ng-model="cb1" ng-init="cb1=false" aria-label="Checkbox 1" class="grid1" ng-click="toggleBoxes()"></md-checkbox>
-                                <md-checkbox ng-model="cb2" ng-init="cb2=false" aria-label="Checkbox 2" class="grid2" ng-click="toggleBoxes()"></md-checkbox>
-                                <md-checkbox ng-model="cb3" ng-init="cb3=false" aria-label="Checkbox 3" class="grid3" ng-click="toggleBoxes()"></md-checkbox>
-                                <md-checkbox ng-model="cb4" ng-init="cb4=false" aria-label="Checkbox 4" class="grid4" ng-click="toggleBoxes()"></md-checkbox>
--->
-                                <!--
-                                <md-input-container>
-                                    <label>Status</label>
-                                    <md-select ng-model="status">
-                                        <md-option ng-repeat="x in status">
-                                            {{x.display}}
-                                        </md-option>
-                                    </md-select>
-                                </md-input-container>
-                                -->
                                 <br>
                                 <md-button class="md-raised md-primary" type="submit">Add</md-button>
                             </form>
@@ -230,10 +134,6 @@
                         <md-card-content>
                             <md-list class="todoList">
                                 <md-subheader>Need to sort {{getIncompleteTodos().length}}:</md-subheader>
-                                <!--<md-list-item ng-repeat="todo in getIncompleteTodos('0')">
-                                    <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
-                                    <span>{{todo.text}}</span>
-                                </md-list-item>-->
                                 <todo ng-repeat="todo in getIncompleteTodos()"></todo>
                             </md-list>
                         </md-card-content>
@@ -244,10 +144,6 @@
                         <md-card-content>
                             <md-list class="todoList">
                                 <md-subheader>Completed {{getCompleteTodos().length}} todos:</md-subheader>
-                                <!--<md-list-item ng-repeat="todo in getCompleteTodos()">
-                                    <md-checkbox ng-model="todo.done" aria-label="checkbox"></md-checkbox>
-                                    <span>{{todo.text}}</span>
-                                </md-list-item>-->
                                 <todo ng-repeat="todo in getCompleteTodos('0')"></todo>
                             </md-list>
                             <md-button class="md-raised md-warn" ng-click="clearCompleted()">Clear Completed</md-button>
@@ -255,20 +151,18 @@
                     </md-card>
 
                 </div>
+                <!-- Left side cards: END -->
 
-                <!-- Right side grid-->
+                <!-- Right side grid: START -->
                 <!-- TODO, fix this grid so it is more responsive, this is a great start though-->
                 <div style="width:1000px;height:800px;">
                     <div style="width:75%;height:75%;">
                         <md-grid-list class="gridListdemoBasicUsage" md-cols="2" md-row-height="1:1">
+
+                            <!-- group 1 TODO card list -->
                             <md-grid-tile class="tile1">
-                                <!-- group 1 TODO card list -->
                                 <div class="tileDiv">
                                     <md-list>
-                                        <!--<md-list-item ng-repeat="todo in getIncompleteTodos('1')">
-                                            <md-checkbox ng-model="todo.done" aria-label="checkbox" class="grid1"></md-checkbox>
-                                            <span>{{todo.text}}</span>
-                                        </md-list-item>-->
                                         <todo ng-repeat="todo in getIncompleteCb1Todos()"></todo>
                                     </md-list>
                                 </div>
@@ -276,14 +170,11 @@
                                     <h3>The roof is on FIRE!!!</h3>
                                 </md-grid-tile-footer>
                             </md-grid-tile>
+
+                            <!-- group 2 TODO card list -->
                             <md-grid-tile class="tile2">
-                                <!-- group 2 TODO card list -->
                                 <div class="tileDiv">
                                     <md-list>
-                                        <!--<md-list-item ng-repeat="todo in getIncompleteTodos('2')">
-                                            <md-checkbox ng-model="todo.done" aria-label="checkbox" class="grid2"></md-checkbox>
-                                            <span>{{todo.text}}</span>
-                                        </md-list-item>-->
                                         <todo ng-repeat="todo in getIncompleteCb2Todos()"></todo>
                                     </md-list>
                                 </div>
@@ -291,14 +182,11 @@
                                     <h3>Start exercising (next year)</h3>
                                 </md-grid-tile-footer>
                             </md-grid-tile>
+
+                            <!-- group 3 TODO card list -->
                             <md-grid-tile class="tile3">
-                                <!-- group 3 TODO card list -->
                                 <div class="tileDiv">
                                     <md-list>
-                                        <!--<md-list-item ng-repeat="todo in getIncompleteTodos('3')">
-                                            <md-checkbox ng-model="todo.done" aria-label="checkbox" class="grid3"></md-checkbox>
-                                            <span>{{todo.text}}</span>
-                                        </md-list-item>-->
                                         <todo ng-repeat="todo in getIncompleteCb3Todos()"></todo>
                                     </md-list>
                                 </div>
@@ -306,14 +194,11 @@
                                     <h3>Cut the grass, rain is coming</h3>
                                 </md-grid-tile-footer>
                             </md-grid-tile>
+
+                            <!-- group 4 TODO card list -->
                             <md-grid-tile class="tile4">
-                                <!-- group 4 TODO card list -->
                                 <div class="tileDiv">
                                     <md-list>
-                                        <!--<md-list-item ng-repeat="todo in getIncompleteTodos('4')">
-                                            <md-checkbox ng-model="todo.done" aria-label="checkbox" class="grid4"></md-checkbox>
-                                            <span>{{todo.text}}</span>
-                                        </md-list-item>-->
                                         <todo ng-repeat="todo in getIncompleteCb4Todos()"></todo>
                                     </md-list>
                                 </div>
@@ -321,12 +206,18 @@
                                     <h3>Hold my beer, I got this...</h3>
                                 </md-grid-tile-footer>
                             </md-grid-tile>
+
                         </md-grid-list>
                     </div>
                 </div>
+                <!-- Right side grid: END -->
+
             </div>
         </div>
+        <!-- Page grid after login: START -->
+
     </div>
+    <!-- Page body: END -->
 
 </body>
 
