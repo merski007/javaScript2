@@ -1,5 +1,5 @@
 <md-list-item ng-hide="todo.edit">
-    <md-checkbox ng-model="todo.done" aria-label="Mark {{todo.text}} complete"></md-checkbox>
+    <md-checkbox ng-model="todo.done" ng-click="completeTodo(todo)" aria-label="Mark {{todo.text}} complete"></md-checkbox>
     <span>{{todo.text}}</span>
     <md-icon class="md-secondary" ng-click="editTodo(todo)" aria-label="Edit">edit</md-icon>
 </md-list-item>

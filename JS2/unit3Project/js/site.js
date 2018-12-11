@@ -137,12 +137,17 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
         $scope.todos.$save(todo);
     }
 
+    $scope.completeTodo = function (todo) {
+        $scope.todos.$save(todo);
+    }
+
     $scope.clearCompleted = function () {
         // loop through completed todos and remove from database
         $scope.getCompleteTodos().forEach(function (todo) {
             $scope.todos.$remove(todo);
         });
     };
+
 
 });
 
