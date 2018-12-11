@@ -87,33 +87,39 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
         $scope.todos = $scope.getIncompleteTodos();
     }
 
-    $scope.toggleBoxes = function () {
-        if (!$scope.cb1) {
-            return $scope.cb2 = false, $scope.cb3 = false, $scope.cb4 = false;
+    $scope.toggleBoxes = function (obj) {
+        if (!obj.newcb1) {
+            return obj.newcb2 = false, obj.newcb3 = false, obj.newcb4 = false;
         }
-        else if (!$scope.cb2) {
-            return $scope.cb1 = false, $scope.cb3 = false, $scope.cb4 = false;
+        else if (!obj.newcb2) {
+            return obj.newcb1 = false, obj.newcb3 = false, obj.newcb4 = false;
         }
-        else if (!$scope.cb3) {
-            return $scope.cb1 = false, $scope.cb2 = false, $scope.cb4 = false;
+        else if (!obj.newcb3) {
+            return obj.newcb1 = false, obj.newcb2 = false, obj.newcb4 = false;
         }
-        else if (!$scope.cb4) {
-            return $scope.cb1 = false, $scope.cb2 = false, $scope.cb3 = false;
+        else if (!obj.newcb4) {
+            return obj.newcb1 = false, obj.newcb2 = false, obj.newcb3 = false;
         }
     }
 
     // add a new todo
+    $scope.newTodo = { text: '', cb1: false, cb2: false, cb3: false, cb4: false, done: false };
     $scope.addTodo = function () {
         // $scope.newTodo will be the value from the text box
+        $scope.newTodo.cb1 = $scope.newTodo.newcb1;
+        $scope.newTodo.cb2 = $scope.newTodo.newcb2;
+        $scope.newTodo.cb3 = $scope.newTodo.newcb3;
+        $scope.newTodo.cb4 = $scope.newTodo.newcb4;
+
         // add new todo to database
-        $scope.todos.$add({ text: $scope.newTodo, cb1: $scope.cb1, cb2: $scope.cb2, cb3: $scope.cb3, cb4: $scope.cb4, done: false });
+        $scope.todos.$add($scope.newTodo);
 
         // update model to clear todo fields
-        $scope.newTodo = '';
-        $scope.cb1 = false;
-        $scope.cb2 = false;
-        $scope.cb3 = false;
-        $scope.cb4 = false;
+        $scope.newTodo.text = '';
+        $scope.newTodo.cb1 = false;
+        $scope.newTodo.cb2 = false;
+        $scope.newTodo.cb3 = false;
+        $scope.newTodo.cb4 = false;
     }
 
     $scope.editTodo = function (todo) {
@@ -122,6 +128,11 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
         // string/number/boolean are passed by value
         //todo.text += " EDITED";
         todo.edit = !todo.edit;
+
+        todo.cb1 = todo.newcb1;
+        todo.cb2 = todo.newcb2;
+        todo.cb3 = todo.newcb3;
+        todo.cb4 = todo.newcb4;
 
         $scope.todos.$save(todo);
     }
@@ -283,9 +294,11 @@ app.directive('todo', function () {
 // custom directive
 app.directive('sort', function () {
     return {
-        templateUrl: 'templates/sortBoxes.html'
+        templateUrl: 'templates/sortBoxes.html',
         // ,controller: ... could specify a custom controller
-        // $scope
+        scope: {
+            sortObj: '=obj'
+        }
         // etc...
         // restrict: 'EA'
     };

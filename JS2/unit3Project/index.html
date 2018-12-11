@@ -118,11 +118,11 @@
                             <form ng-submit="addTodo()">
                                 <md-input-container>
                                     <label>New Todo:</label>
-                                    <input type="text" ng-model="newTodo" required>
+                                    <input type="text" ng-model="newTodo.text" required>
                                 </md-input-container>
                                 <br>
                                 <b>Sort: </b>
-                                <sort></sort>
+                                <sort obj="newTodo"></sort>
                                 <br>
                                 <md-button class="md-raised md-primary" type="submit">Add</md-button>
                             </form>
