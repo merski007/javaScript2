@@ -53,36 +53,40 @@ md-checkbox.grid1 .md-icon {
   background: #c0392b; 
   border-color: #ffffff;
 }
-.tile1 {
+.tile1, .sb1 {
   background: #c0392b; 
   color:#ffffff;
+  text-align:center;
 }
   
 md-checkbox.grid2 .md-icon {
   background: #2980b9;
   border-color: #ffffff;
 }
-.tile2 {
+.tile2, .sb2 {
   background: #2980b9;
   color:#ffffff;
+  text-align:center;
 }
 
 md-checkbox.grid3 .md-icon {
   background: #8e44ad;
   border-color: #ffffff;
 }
-.tile3 {
+.tile3, .sb3 {
   background: #8e44ad;
   color:#ffffff;
+  text-align:center;
 }
 
 md-checkbox.grid4 .md-icon {
   background: #2c3e50; 
   border-color: #ffffff;
 }
-.tile4 {
+.tile4, .sb4 {
   background: #2c3e50; 
   color:#ffffff;
+  text-align:center;
 }
 .tileDiv{
   height:100%;

@@ -39,9 +39,13 @@
     <div layout='column' ng-controller='authCtrl'>
         <!-- Header: START -->
         <md-toolbar>
-            <div class='md-toolbar-tools'>
+            <div class='md-toolbar-tools' ng-controller='todoCtrl'>
                 <h2 md-truncate flex><b>{{appName}}</b></h2>
-                <md-button ng-click="toggleRight()" ng-hide="isOpenRight() || authUser">Sign In <md-icon md-font-library="material-icons">account_box</md-icon>
+                <h3 ng-show="authUser" md-truncate flex class='sb1'>{{getIncompleteCb1Todos().length}} / 5</h3>
+                <h3 ng-show="authUser" md-truncate flex class='sb2'>{{getIncompleteCb2Todos().length}} / 20</h3>
+                <h3 ng-show="authUser" md-truncate flex class='sb3'>{{getIncompleteCb3Todos().length}} / 10</h3>
+                <h3 ng-show="authUser" md-truncate flex class='sb4'>{{getIncompleteCb4Todos().length}} / 50</h3>
+                <md-button ng-click=" toggleRight()" ng-hide="isOpenRight() || authUser">Sign In <md-icon md-font-library="material-icons">account_box</md-icon>
                 </md-button>
                 <md-button ng-click="logout()" ng-show="isOpenRight() || authUser">Sign Out <md-icon md-font-library="material-icons">account_box</md-icon>
                 </md-button>
@@ -155,8 +159,8 @@
 
                 <!-- Right side grid: START -->
                 <!-- TODO, fix this grid so it is more responsive, this is a great start though-->
-                <div style="width:40%;height:40%;border:1px solid black;">
-                    <div style="width:75%;height:75%;">
+                <div style="width:75%;height:75%;border:1px solid black;">
+                    <div style="width:100%;height:100%;">
                         <md-grid-list class="gridListdemoBasicUsage" md-cols="2" md-row-height="1:1">
 
                             <!-- group 1 TODO card list -->
@@ -212,7 +216,7 @@
                 </div>
                 <!-- Right side grid: END -->
 
-                <!-- Scoreboard: START -->
+                <!-- Scoreboard: START 
                 <div>
 
                     <md-toolbar>
@@ -246,7 +250,7 @@
 
                 </div>
 
-                <!-- Scoreboard: END -->
+                 Scoreboard: END -->
 
             </div>
         </div>
