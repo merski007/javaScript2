@@ -13,5 +13,7 @@
         <br>
         <sort obj="todo"></sort>
         <md-icon class="md-secondary" ng-click="editTodo(todo)" aria-label="Save">save</md-icon>
+        <!--<md-icon class="md-secondary" ng-click="deleteTodo(todo)" aria-label="Delete">delete</md-icon>-->
+        <md-icon class="md-secondary" ng-click="showConfirm($event, todo)" aria-label="Delete">delete</md-icon>
     </form>
 </md-list-item>

@@ -11,7 +11,7 @@ app.run(function ($rootScope) {
 });
 
 
-app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
+app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth, $mdDialog) {
     // init firebase
     app.initFirebase();
 
@@ -120,7 +120,7 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
         $scope.newTodo.cb2 = false;
         $scope.newTodo.cb3 = false;
         $scope.newTodo.cb4 = false;
-    }
+    };
 
     $scope.editTodo = function (todo) {
         // edit the todo object
@@ -135,11 +135,32 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth) {
         todo.cb4 = todo.newcb4;
 
         $scope.todos.$save(todo);
-    }
+    };
 
     $scope.completeTodo = function (todo) {
         $scope.todos.$save(todo);
-    }
+    };
+
+    $scope.deleteTodo = function (todo) {
+        $scope.todos.$remove(todo);
+    };
+
+    $scope.showConfirm = function (ev, todo) {
+        // Appending dialog to document.body to cover sidenav in docs app
+        var confirm = $mdDialog.confirm()
+            .title('Are you sure you want to delete this TODO?')
+            .textContent('Once it\'s gone, it\'s gone. Forever...')
+            .ariaLabel('Delete confirmation')
+            .targetEvent(ev)
+            .ok('Delete it!')
+            .cancel('Keep it!');
+
+        $mdDialog.show(confirm).then(function () {
+            $scope.deleteTodo(todo);
+        }, function () {
+            $scope.status = 'You decided to keep your debt.';
+        });
+    };
 
     $scope.clearCompleted = function () {
         // loop through completed todos and remove from database
