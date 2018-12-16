@@ -8,10 +8,11 @@ app.run(function ($rootScope) {
     $rootScope.isActive = function (viewPath) {
         return viewPath == $location.path();
     }
+    $rootScope.newUser = false;
 });
 
 
-app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth, $mdDialog) {
+app.controller('todoCtrl', function ($scope, $rootScope, $firebaseArray, $firebaseAuth, $mdDialog) {
     // init firebase
     app.initFirebase();
 
@@ -30,6 +31,24 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth, $mdD
             console.log("Signed in as:", firebaseUser.uid);
             $scope.authUser = firebaseUser;
             $scope.todos = $firebaseArray(app.firebaseRef.child('users').child($scope.authUser.uid).child('ng-todos'));
+            if ($rootScope.newUser) {
+                //alert('new user');
+                $scope.newTodo0 = { text: 'I\'m the most important, do me first!', cb1: true, cb2: false, cb3: false, cb4: false, done: false };
+                $scope.newTodo1 = { text: 'New Year resolution, eat healthier', cb1: false, cb2: true, cb3: false, cb4: false, done: false };
+                $scope.newTodo2 = { text: 'Pick up milk on the way home', cb1: false, cb2: false, cb3: true, cb4: false, done: false };
+                $scope.newTodo3 = { text: 'Plan the Charleston vacation', cb1: false, cb2: false, cb3: false, cb4: true, done: false };
+                $scope.newTodo4 = { text: 'Sort me!!!!', cb1: false, cb2: false, cb3: false, cb4: false, done: false };
+                $scope.newTodo5 = { text: 'Looky here!! I\'m already done!!!', cb1: false, cb2: false, cb3: false, cb4: false, done: true };
+
+                $scope.todos.$add($scope.newTodo0);
+                $scope.todos.$add($scope.newTodo1);
+                $scope.todos.$add($scope.newTodo2);
+                $scope.todos.$add($scope.newTodo3);
+                $scope.todos.$add($scope.newTodo4);
+                $scope.todos.$add($scope.newTodo5);
+
+                $rootScope.newUser = false;
+            };
             //$scope.user = $firebaseObject(app.firebaseRef.child('users').child($scope.authUser.uid));
         } else {
             console.log("Signed out");
@@ -173,7 +192,7 @@ app.controller('todoCtrl', function ($scope, $firebaseArray, $firebaseAuth, $mdD
 });
 
 
-app.controller('authCtrl', function ($scope, $firebaseAuth, $firebaseObject, $mdSidenav, $log) {
+app.controller('authCtrl', function ($scope, $rootScope, $firebaseAuth, $firebaseObject, $mdSidenav, $log) {
     // right side nav functions
     $scope.toggleRight = buildToggler('right');
     $scope.isOpenRight = function () {
@@ -240,6 +259,7 @@ app.controller('authCtrl', function ($scope, $firebaseAuth, $firebaseObject, $md
         $scope.authObj.$createUserWithEmailAndPassword($scope.userEmail, $scope.userPassword)
             .then(function (firebaseUser) {
                 console.log("User " + firebaseUser.uid + " created successfully!");
+                $rootScope.newUser = true;
                 $scope.close();
             }).catch(function (error) {
                 console.error("Error: ", error);
